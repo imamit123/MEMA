@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Global View Article Newsletter feature.
+ */
+
+include_once 'global_view_article_newsletter.features.inc';

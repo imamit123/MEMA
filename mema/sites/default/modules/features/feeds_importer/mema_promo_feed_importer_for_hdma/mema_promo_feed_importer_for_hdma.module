@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mema Promo Feed Importer for HDMA feature.
+ */
+
+include_once 'mema_promo_feed_importer_for_hdma.features.inc';

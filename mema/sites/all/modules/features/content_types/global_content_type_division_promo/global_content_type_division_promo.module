@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Global_Content_Type_Division_Promo feature.
+ */
+
+include_once 'global_content_type_division_promo.features.inc';

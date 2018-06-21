@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ * Main module file for the Pantheon Advanced Page Cache.
+ */
+
+// -----------------------------------------------------------------------
+// Core Hooks
+
+/**
+ * Implements hook_pre_emit_cache_tags_alter().
+ */
+function pantheon_advanced_page_cache_pre_emit_cache_tags_alter(&$tags) {
+  // Rename all _list cache tags to _emit_list to avoid clearing list tags by
+  // default.
+  foreach ($tags as $key => $tag) {
+    $tags[$key] = str_replace('_list', '_emit_list', $tag);
+  }
+}
+
+/**
+ * Implements hook_emit_cache_tags().
+ */
+function pantheon_advanced_page_cache_emit_cache_tags($tags) {
+  drupal_add_http_header('Surrogate-Key', implode(' ', $tags));
+}
+ 
+/**
+ * Implements hook_invalidate_cache_tags().
+ */
+function pantheon_advanced_page_cache_invalidate_cache_tags($tags) {
+  if (function_exists( 'pantheon_clear_edge_keys')) {
+    pantheon_clear_edge_keys($tags);
+  }
+}

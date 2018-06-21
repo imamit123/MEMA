@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mema Homepage Hero Slider feature.
+ */
+
+include_once 'mema_homepage_hero_slider.features.inc';

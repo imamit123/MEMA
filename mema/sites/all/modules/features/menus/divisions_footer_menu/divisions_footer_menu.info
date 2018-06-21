@@ -1,0 +1,14 @@
+name = Divisions Footer Menu
+description = Feature for divisions footer menu
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = menu-footer-menu
+features[menu_links][] = menu-footer-menu_industry-career-center:<front>
+features[menu_links][] = menu-footer-menu_mfsg:<front>
+features[menu_links][] = menu-footer-menu_privacy-policyterms-of-use:<front>
+features[menu_links][] = menu-footer-menu_site-map:<front>
+project path = sites/all/modules/features/menus

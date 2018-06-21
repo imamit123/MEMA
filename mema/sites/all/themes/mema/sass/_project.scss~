@@ -1,0 +1,17 @@
+.nav>li{
+	float:left;
+}
+.top-container {
+    display: block;
+    height: 600px;
+    width: 100%;
+}
+.main-container{
+  display: inline-block;
+  width: 100%;
+}
+.container-section {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}

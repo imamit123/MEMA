@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Division Division Promo Feeds Exporter View feature.
+ */
+
+include_once 'division_division_promo_feeds_exporter_view.features.inc';

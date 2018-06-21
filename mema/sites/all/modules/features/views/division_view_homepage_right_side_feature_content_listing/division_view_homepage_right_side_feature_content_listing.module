@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Division View Homepage Right Side Feature Content listing feature.
+ */
+
+include_once 'division_view_homepage_right_side_feature_content_listing.features.inc';

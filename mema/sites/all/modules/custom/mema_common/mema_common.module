@@ -1,0 +1,799 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function mema_common_menu() {
+  $items = array();
+  $items['test'] = array(
+    'page callback' => 'test',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['advocacy'] = array(
+    'page callback' => 'advocacy',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['priv/login'] = array(
+    'page callback' => 'private_login',
+    'title' => t('Administrator Login'),
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'includes/private_login.inc',
+    'file path' => drupal_get_path('module', 'mema_common'),
+  );
+  $items['admin/run-cron'] = array(
+    'title' => t('Cron'),
+    'page callback' => 'run_cron',
+    'access arguments' => array('cron permission'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['r403redirect'] = array(
+    'title' => t('Access Denied'),
+    'page callback' => 'r403redirect',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/landing-page/quick-links'] =  array(
+    'title' => t('Landing Page Quick Links'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('landing_page_quick_links',),
+    'access arguments' => array('manage landing page quick links'),
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/landing_page_quick_links.inc',
+    'file path' => drupal_get_path('module', 'mema_common'),
+  );
+  $items['admin/landing-page/featured-content'] =  array(
+    'title' => t('Landing Page Featured Content'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('landing_page_featured_content',),
+    'access arguments' => array('manage landing page featured content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/landing_page_featured_content.inc',
+    'file path' => drupal_get_path('module', 'mema_common'),
+  );
+  $items['news/%'] = array(
+     'page callback' => 'newsarg',
+     'access callback' => TRUE,
+     'type' => MENU_CALLBACK,
+   );
+
+  return $items;
+}
+
+/**
+ * Implements test function
+ */
+function test() {
+
+echo "<pre>";
+print_r($_COOKIE);
+
+if(isset($_COOKIE['"STYXKEY_cookie_name_5_mar_2018"'])){
+  $foo = $_COOKIE['"STYXKEY_cookie_name_5_mar_2018"'];
+  // Generate varied content based on cookie value
+  // Do NOT set cookies here; Set-Cookie headers do not allow the response to be cached
+}
+else{
+  $expire = time()+3600; // 1 hour expiry
+ $value = "cookie value  5 MAR - string or interger";
+ $domain =  $_SERVER['HTTP_HOST'];
+setcookie("STYXKEY_cookie_name_5_mar_2018", $value, $expire,"/", $domain, 0);
+
+}
+
+if(!isset($_COOKIE["STYXKEY_cookie_name_5_mar"])) {
+    echo "Cookie named '" . $value . "' is not set!";
+} else {
+    echo "Cookie '" . $_COOKIE["STYXKEY_cookie_name_5_mar_2018"] . "' is set!<br>";
+    echo "Value is: " . $value;
+}
+
+
+
+
+
+
+  // get VID for the Badge vocabulary
+  /*$database = DB::dbInstance();
+  $tbl = 'taxonomy_vocabulary';
+  $condition_flds = array(
+    'machine_name' => 'badge',
+  );
+  $vid = $database->dbGetFieldValue($tbl, $condition_flds, 'vid');
+
+  $functions = GAI::getInstance();
+  $sys_badges = $functions->gtGetBadges($vid);
+  $rs = array_keys($sys_badges);
+  out($rs);
+*/
+
+/*
+  $items = module_invoke_all('menu');
+  drupal_alter('menu', $items);
+  foreach ($items as $path => $info) {
+    $pth = preg_replace('/%([a-z0-9_]*)/i', '*', $path);
+    $admin_path = explode('admin/', $pth);
+    $node_path = explode('node/', $pth);
+    $webfrm_path = explode('webform/', $pth);
+    $ctools_path = explode('');
+    if( count($admin_path) <= 1 &&
+     count($node_path) <= 1 &&
+     count($webfrm_path) <= 1 ) {
+      echo $pth;
+      echo '<br>';
+    }
+  }
+
+  module_load_include('inc', 'path', 'path.admin');
+  $tmp_ary = path_admin_overview();
+  //out($tmp_ary); die;
+  $tmp_ary = $tmp_ary['path_table']['#rows'];
+  foreach($tmp_ary as $val) {
+    echo $val['data']['alias'];
+    echo '<br>';
+  }*/
+
+
+  /*echo 'TEST BADGE CHANGE ... <br/>';
+  //$sfapi = salesforce_get_api();
+  //$usr_email = 'ssotester1@mailinator.com';
+  $usr_email = 'tr@mailinator.com';
+  $sfq = new SalesforceSelectQuery('Contact');
+  $sfq->fields = array('Name', 'Email', 'OrderAPI_BadgesTest__c');
+  $sfq->addCondition('Email', "'$usr_email'");
+  $sfq->LIMIT = 10;
+  $sfq_rs = $sfapi->query($sfq);
+  out($sfq_rs);
+  $user_badges = $sfq_rs['records'][0]['OrderAPI_BadgesTest__c'];
+  echo $user_badges;*/
+
+}
+
+/**
+ * Page callback for 403redirect
+ */
+function r403redirect() {
+  global $base_url;
+  $header_status = drupal_get_http_header();
+  if (!user_is_logged_in() && $header_status['status'] == '403 Forbidden') {
+     global $base_url;
+    $destination = $_GET['destination'];
+    $user_redirect_url = $base_url . '/' . $destination;
+    $arrayName = array($user_redirect_url);
+    $_SESSION['redirect_url'] = $arrayName;
+    //$dest = $base_url . '/user/login?redirect_url='. $user_redirect_url;
+    $dest = $base_url . '/user/login';
+    header('Location: ' . $dest);
+  }
+  // global $base_url;
+  // $referer = $_SERVER['REQUEST_URI'];
+  // $_SESSION['mema_do_sso_redirection'] = $referer;
+  // $functions = GAI::getInstance();
+  // $redirect = $functions->gtCheckSSORedirection();
+  // if($redirect) {
+  //   unset($_REQUEST['destination']);
+  //   $dest = $base_url . '/user/login';
+  //   header('Location: ' . $dest);
+  //   exit;
+  // } else {
+  //   return 'You do not have permission to access this page.';
+  // }
+}
+
+/**
+ * Implements hook_file_download_access to control access to download private files.
+ */
+function mema_common_file_download_access($file_item, $entity_type, $entity) {
+  // check if badge access added to entity
+  global $user;
+  $uid = $user->uid;
+
+  // bypass root user
+  if($uid == 1) {
+    return TRUE;
+  }
+
+  if(isset($entity->field_sf_badge[LANGUAGE_NONE][0])) {
+    $functions = GAI::getInstance();
+    $nid = $entity->nid;
+    $type = $entity->type;
+    $grant = $functions->gtCheckContentAccess($nid, $type);
+    if ($grant) {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
+  } else {
+    return TRUE;
+  }
+}
+
+/**
+ * Implements hook_theme
+ */
+function mema_common_theme($existing, $type, $theme, $path) {
+  $themes = array(
+    'generic_quick_links' => array(
+      'template' => 'templates/generic-quick-links',
+    ),
+    'generic_featured_content' => array(
+      'template' => 'templates/generic-featured-content',
+    ),
+  );
+  return $themes;
+}
+
+/**
+ * Implements hook_user_logout().
+ */
+function mema_common_user_logout($account) {
+  // Destroy the current session, and reset $user to the anonymous user.
+  session_destroy();
+  if(isset($_COOKIE['STYXKEY_cookie_name'])) {
+    $cookiePath = "/";
+    setcookie("STYXKEY_cookie_name", NULL, time()-3600, $cookiePath);
+    unset ($_COOKIE['STYXKEY_cookie_name']);
+  }
+  // redirect to salesforce for logout
+  // $env = variable_get('environment', 'prod');
+  // if($env == 'stag'){
+  //   header('Location: https://mn-mema.cs21.force.com/secur/logout.jsp');
+  // }elseif($env == 'prod'){
+  //   header('Location: https://mema.force.com/secur/logout.jsp');
+  // }
+   header('Location: https://mema.force.com/secur/logout.jsp');
+  die();
+}
+
+/**
+ * Advocacy callback Function for create url.
+ */
+function advocacy() {
+  return t('');
+}
+
+/**
+ * Utility function to output data objects.
+ */
+function out($out) {
+  //out($qry->__toString());
+  echo '<pre>';
+  print_r($out);
+}
+
+/**
+ * Implements hook_permission().
+ */
+function mema_common_permission() {
+  $permissions['administer content'] = array(
+    'title' => t('Administer Site Content'),
+  );
+  $permissions['cron permission'] = array(
+    'title' => t('Permission to Execute Cron'),
+  );
+  $permissions['manage landing page quick links'] = array(
+    'title' => t('Manage Landing Page Quick Links'),
+  );
+  $permissions['manage landing page featured content'] = array(
+    'title' => t('Manage Landing Page Featured Content'),
+  );
+
+  return $permissions;
+}
+
+/**
+ * Implements hook_node_access()
+ */
+function mema_common_node_access($node, $op, $account) {
+  if($op == 'view') {
+    $functions = GAI::getInstance();
+    if(is_object($node)) {
+      $type = $node->type;
+      $status = $node->status;
+      // if node is published
+      if($status) {
+        $nid = $node->nid;
+        $grant = $functions->gtCheckContentAccess($nid, $type);
+        if($grant) {
+          return NODE_ACCESS_ALLOW;
+        } else {
+          return NODE_ACCESS_DENY;
+        }
+      } else {
+        return NODE_ACCESS_IGNORE;
+      }
+    } else {
+      return NODE_ACCESS_DENY;
+    }
+  } else {
+    NODE_ACCESS_IGNORE;
+  }
+}
+
+/**
+ * Implements hook_cron()
+ */
+function mema_common_cron() {
+  $functions = GAI::getInstance();
+  $functions->gtSyncSFBadges();
+  $msg = 'Cron execution completed @' . __FUNCTION__;
+  $functions->gtWatchdog($msg);
+}
+
+/**
+ * Implements hook_form_alter
+ */
+function mema_common_form_alter(&$form, &$form_state, $form_id) {
+  //drupal_set_message($form_id);
+  if($form_id == 'homepage_feature_node_form') {
+    $form['#validate'][] = 'homepage_feature_node_form_validate';
+  }
+  else if($form_id == 'homepage_background_video_node_form') {
+    $form['#validate'][] = 'homepage_background_video_node_form_validate';
+  }
+  // Add validation in background image content type.
+  else if($form_id == 'background_image_node_form') {
+    $form['#validate'][] = 'background_image_node_form_validate';
+  }
+  //Change in Small Event node form
+  else if($form_id == 'small_event_node_form') {
+    $form['#after_build'][] = '_small_event_after_build';
+  }
+  else if ($form_id == 'large_event_node_form') {
+    $form['field_event_end_date']['#attributes'] = array('style' => 'display:none;');
+    $form['#submit'][] = 'large_event_submit_callback';
+  }
+  if($form_id == 'taxonomy_form_term') {
+    if(arg(1) == 'term' && is_numeric(arg(2)) && arg(3) == 'edit'){
+      $form['#validate'][] = 'article_type_term_form_validate';
+    }
+  }
+}
+
+/**
+ *  function to  use validate homepage_feature_node
+ *  Add only one node for one posetion. if add other node in same
+ *  posetion function validate.
+ *  @return
+ *  form_set_error when add more node
+ */
+function homepage_feature_node_form_validate(&$form, &$form_state) {
+  $functions = GAI::getInstance();
+  $present_position = $form_state['values']['field_position']['und'][0]['value'];
+  $posetionid = $functions->gtGetAllHomepageFeatureNodesPosition();
+  foreach ($posetionid as $key => $value) {
+    if($value['entity_id'] != arg(1))  {
+      $position_occupied[$value['field_position_value']] = $value['entity_id'];
+    }
+  }
+  // check if current position occupied earlier, if yes then
+  // show error
+  if ($position_occupied && arg(1) == 'add') {
+    if (array_key_exists($present_position, $position_occupied)) {
+      $node = l('Node','node/'.$position_occupied[$present_position]);
+      form_set_error($present_position, 'This slot is already taken, you may review the node @ ' . $node);
+    }
+  }
+}
+
+/**
+ *  function to prevent creation of second node for
+ *  'homepage background video' content type
+ */
+function homepage_background_video_node_form_validate(&$form, &$form_state) {
+  $functions = GAI::getInstance();
+  $type = 'homepage_background_video';
+  $node_exists = $functions->gtIfNodeExists($type);
+  if ($node_exists && arg(1) == 'add') {
+    form_set_error($form_state['values']['title'], 'We already have a background video, cannot add another, you may like to Update the existing one.');
+  }
+}
+
+/**
+ * Impliments hook_form_views_exposed_form_alter
+ *
+ * Used to change exposed date filter to month only, as this is not available in the views UI
+ */
+function mema_common_form_views_exposed_form_alter(&$form, $form_state) {
+  if( $form['#id'] == 'views-exposed-form-events-page') {
+    // Switch date formatter to month only
+    $form['#after_build'] = array('mema_events_page_after_build');
+    //change first element any to element type
+    $replacements_event_type = array('All' => "Event Type");
+    $form['event_type']['#options'] = array_replace($form['event_type']['#options'], $replacements_event_type);
+    $form['between_date_filter_1']['value']['#date_format'] = 'm';
+    // Add extra validator to handle filter submit
+    $form['#validate'][] = 'mema_common_views_exposed_form_validate';
+    $form['field_event_location_value']['#attributes']['placeholder'] = t( 'Location' );
+  }
+  // Resource Publications filter alter
+  if( $form['#id'] == 'views-exposed-form-resource-page') {
+    // Change first element in Year filter -
+    $form['#after_build'] = array('mema_resource_page_after_build');
+    //change Resource Type any to type
+    $replacements_resource_type = array('All' => "Type");
+    $form['field_resource_type_tid']['#options'] = array_replace($form['field_resource_type_tid']['#options'], $replacements_resource_type);
+    //change Resource Topic any to Topic
+    $replacements_resource_topic = array('All' => "Topic");
+    $form['field_resource_topic_tid']['#options'] = array_replace($form['field_resource_topic_tid']['#options'], $replacements_resource_topic);
+  }
+  //For news listing page
+  if( $form['#id'] == 'views-exposed-form-news-listing-page-page') {
+    // Switch date formatter to month only
+    $form['#after_build'] = array('mema_news_listing_page_after_build');
+    $form['field_article_date_value']['value']['#date_format'] = 'm';
+    // Add extra validator to handle filter submit
+    $form['#validate'][] = 'mema_common_views_exposed_form_validate';
+  }
+}
+
+/**
+ * Custom validator for exposed Views date filter
+ */
+function mema_common_views_exposed_form_validate(&$form, &$form_state) {
+  $handlers = &$form_state['view']->filter;
+  foreach ($handlers as $key => $handler) {
+    if (!empty($handler->options['exposed']) && isset($form[$key]['value']['#type']) && $form[$key]['value']['#type'] == 'date_select' && $form[$key]['value']['#date_format'] == 'm'){
+      $handler->options['granularity'] = 'month';
+      $handler->format = 'm';
+    }
+  }
+}
+
+/**
+ * Custom After build for edit views Filter form News Page filter.
+ */
+function mema_news_listing_page_after_build($form, &$form_state) {
+  //change first value of fillds  -Month to Month
+  $replacements_month = array(NULL => "Month");
+  $form['field_article_date_value']['value']['month']['#options'] = array_replace($form['field_article_date_value']['value']['month']['#options'], $replacements_month);
+  //change first value of fillds  -Month to Month
+  $replacements_year = array(NULL => "Year");
+  $form['field_article_date_value_1']['value']['year']['#options'] = array_replace($form['field_article_date_value_1']['value']['year']['#options'], $replacements_year);
+  return $form;
+}
+
+/**
+ * Custom After build for edit views Filter form Event Page filter.
+ */
+function mema_events_page_after_build($form, &$form_state) {
+  //change first value of fillds  -Month to Month
+  $replacements_month = array(NULL => "Month");
+  $form['between_date_filter_1']['value']['month']['#options'] = array_replace($form['between_date_filter_1']['value']['month']['#options'], $replacements_month);
+  //change first value of fillds  -Month to Month
+  $replacements_year = array(NULL => "Year");
+  $form['between_date_filter']['value']['year']['#options'] = array_replace($form['between_date_filter']['value']['year']['#options'], $replacements_year);
+  return $form;
+}
+
+/**
+ * Custom After build for edit views Filter form in Resource Page filter .
+ */
+function mema_resource_page_after_build($form, &$form_state) {
+  //change first value of fillds  -Month to Month
+  $replacements_year = array(NULL => "Year");
+  $form['field_date_value']['value']['year']['#options'] = array_replace($form['field_date_value']['value']['year']['#options'], $replacements_year);
+  return $form;
+}
+
+/**
+ * Implement after build for unset Small event show date and to date field .
+ */
+function _small_event_after_build($form, &$form_state) {
+  unset($form['field_event_date']['und'][0]['show_todate']);
+  unset($form['field_event_date']['und'][0]['value2']);
+  return $form;
+}
+
+/**
+ *  function to prevent creation of second node for
+ *  'background image' content type
+ */
+function background_image_node_form_validate($form, &$form_state) {
+  $functions = GAI::getInstance();
+  $type = 'background_image';
+  $node_exists = $functions->gtIfNodeExists($type);
+  if ($node_exists && arg(1) == 'add') {
+    form_set_error($form_state['values']['title'], 'We already have a background Image, cannot add another, you may like to Update the existing one.');
+  }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function mema_common_block_info() {
+  $block = array();
+  $blocks['sidebar_feature_content'] = array (
+    'info' => t('Sidebar Feature Content'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+  $blocks['generic_quick_links'] = array (
+    'info' => t('Generic Quick Links Block'),
+  );
+  $blocks['generic_featured_content'] = array (
+    'info' => t('Generic Featured Content Block'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mema_common_block_view($delta) {
+  $block = array();
+
+  switch ($delta) {
+    case 'sidebar_feature_content' :
+      $block['subject'] = '';
+      $block['content'] = sidebar_feature_content();
+    break;
+    case 'generic_quick_links' :
+      $block['subject'] = t('Quick Links');
+      $block['content'] = mema_common_generic_quick_links();
+    break;
+    case 'generic_featured_content' :
+      $block['subject'] = t('Featured Content');
+      $block['content'] = mema_common_generic_featured_content();
+    break;
+  }
+  return ($block);
+}
+
+/**
+ * Implements hook_preprocess_HOOK(&$variables)
+ */
+function mema_common_preprocess_generic_featured_content(&$variables) {
+  $functions = GAI::getInstance();
+
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $nid = arg(1);
+    $node = node_load($nid);
+
+    if (node_is_page($node)) {
+      $items = field_get_items('node', $node, 'field_fs_featured_content');
+
+      $out = "<div class = 'fc-blk-wrapper'>";
+      // loop through the collection items
+      foreach ($items as $item) {
+        $fc = field_collection_field_get_entity($item);
+        $tmp_date = $fc->field_fc_date[LANGUAGE_NONE][0]['value'];
+        $tmp_date = strtotime($tmp_date);
+        $tmp_date = date('F j, Y', $tmp_date);
+        $tmp_title = $fc->field_fc_title[LANGUAGE_NONE][0]['safe_value'];
+        $tmp_desc = $fc->field_fc_description[LANGUAGE_NONE][0]['safe_value'];
+        $tmp_link = $fc->field_fc_read_more_link[LANGUAGE_NONE][0]['url'];
+        $tmp_link_target = trim($fc->field_fc_read_more_link[LANGUAGE_NONE][0]['attributes']['target']);
+
+        $out .= $functions->gtGetFormattedFCBlk($tmp_date, $tmp_title, $tmp_desc, $tmp_link, $tmp_link_target);
+      }
+      $out .= "</div>";
+      $variables['mema_featured_content'] = serialize($out);
+    }
+  } else {
+    // fetch content for landing pages
+    $args = arg();
+    $current_pg_url = implode('/', $args);
+    $current_pg_url = strtolower($current_pg_url);
+
+    $tmp_tree = menu_tree('main-menu');
+    $menu_tree = array();
+
+    foreach ($tmp_tree as $val) {
+      $tmp_title = $val['#title'];
+      $tmp_url = $val['#href'];
+      $menu_tree["$tmp_title"] = $tmp_url;
+    }
+
+    // check if current page path exists in the landing page list
+    $is_landing_page = array_search($current_pg_url, $menu_tree);
+    if ($is_landing_page !== FALSE) {
+      $variable_name = str_replace(' ', '_', strtolower($is_landing_page));
+      $out = "<div class = 'fc-blk-wrapper'>";
+      for ($i = 1; $i < 4; $i++) {
+        $landing_pg_title = 'mema_featured_content_title_' . $i . '_' . $variable_name;
+        $landing_pg_date = 'mema_featured_content_date_' . $i . '_' .  $variable_name;
+        $landing_pg_desc = 'mema_featured_content_desc_' . $i . '_' .  $variable_name;
+        $landing_pg_url = 'mema_featured_content_url_' . $i . '_' .  $variable_name;
+        $landing_pg_target = 'mema_featured_content_url_target_' . $i . '_' .  $variable_name;
+
+        $tmp_date = trim(variable_get($landing_pg_date, ''));
+        if($tmp_date != '') {
+          $tmp_date = strtotime($tmp_date);
+          $tmp_date = date('F j, Y', $tmp_date);
+        }
+        $tmp_title = variable_get($landing_pg_title, '');
+        $tmp_desc = variable_get($landing_pg_desc, '');
+        $tmp_link = variable_get($landing_pg_url, '');
+        $tmp_link_target = variable_get($landing_pg_target, 0);
+
+        $out .= $functions->gtGetFormattedFCBlk($tmp_date, $tmp_title, $tmp_desc, $tmp_link, $tmp_link_target);
+      }
+      $out .= "</div>";
+
+      $variables['mema_featured_content'] = serialize($out);
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK(&$variables)
+ */
+function mema_common_preprocess_generic_quick_links(&$variables) {
+  // prepare content for the node pages
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $nid = arg(1);
+    $node = node_load($nid);
+    $node_quick_link_content = '';
+
+    if (node_is_page($node)) {
+      if (isset($node->field_quick_links_blk)) {
+        $node_quick_link_content = $node->field_quick_links_blk[LANGUAGE_NONE][0]['safe_value'];
+      }
+      $variables['mema_quick_links_content'] = serialize($node_quick_link_content);
+    }
+  } else {
+    $args = arg();
+    $current_pg_url = implode('/', $args);
+    $current_pg_url = strtolower($current_pg_url);
+
+    $tmp_tree = menu_tree('main-menu');
+    $menu_tree = array();
+
+    foreach ($tmp_tree as $val) {
+      $tmp_title = $val['#title'];
+      $tmp_url = $val['#href'];
+      $menu_tree["$tmp_title"] = $tmp_url;
+    }
+
+    // check if current page path exists in the landing page list
+    $is_landing_page = array_search($current_pg_url, $menu_tree);
+    if ($is_landing_page !== FALSE) {
+      $landing_pg_content = 'mema_quik_link_content_' . str_replace(' ', '_', strtolower($is_landing_page));
+      $landing_pg_content = variable_get($landing_pg_content, '');
+
+      if (is_array($landing_pg_content) && count($landing_pg_content)) {
+        $landing_pg_content = $landing_pg_content['value'];
+      }
+      $variables['mema_quick_links_content'] = serialize($landing_pg_content);
+    }
+  }
+}
+
+/**
+ * Implements hook_block_view_alter.
+ */
+function mema_common_block_view_alter(&$data, $block) {
+  // hide Quick Links block if no content found
+  if($block->delta == 'generic_quick_links') {
+    $blk_content = strip_tags(trim($data['content']));
+    $blk_content = str_replace(' ', '', $blk_content);
+
+    if(strlen($blk_content) <= 3) {
+      $data['subject'] = '';
+      $data['content'] = '';
+    }
+  }
+
+  // hide Featured Content block if no content found
+  if($block->delta == 'generic_featured_content') {
+    $blk_content = strip_tags(trim($data['content']));
+    $blk_content = str_replace(' ', '', $blk_content);
+
+    if(strlen($blk_content) <= 3) {
+      $data['subject'] = '';
+      $data['content'] = '';
+    }
+  }
+}
+
+/**
+ * Function to get generic featured content block content.
+ */
+function mema_common_generic_featured_content() {
+  return theme('generic_featured_content');
+}
+
+/**
+ * Function to get generic quick links block content.
+ */
+function mema_common_generic_quick_links() {
+  return theme('generic_quick_links');
+}
+
+/**
+ * Callback for sidebar feature content block.
+ */
+function sidebar_feature_content() {
+  $functions = GAI::getInstance();
+  return $functions->gtGetFCBContent();
+}
+
+/**
+ * Callback for 'admin/run-cron'.
+ */
+function run_cron() {
+  global $user;
+  $functions = GAI::getInstance();
+  $cron = drupal_cron_run();
+  if($cron){
+    $wd_msg = "Cron executed by UID : " . $user->uid . ' @ ' . __FUNCTION__;
+    $msg = 'Cron executed successfully.';
+    $functions->gtWatchdog($wd_msg);
+  } else {
+    $wd_msg = "Cron execution attempt by UID : " . $user->uid . ' failed @ ' . __FUNCTION__;
+    $msg = 'Cron execution interrupted, please try again. If problem persists contact site admin.';
+    $functions->gtWatchdog($msg);
+  }
+  drupal_set_message($msg);
+  drupal_goto($_SERVER['HTTP_REFERER']);
+  exit;
+}
+
+/**
+ *  function to  use submit callback for large event
+ *  When user not check end date checkbox.
+ *  End date not submit in database.
+ *
+ */
+function large_event_submit_callback(&$form, &$form_state) {
+   $form_state['values']['field_event_end_date']['und'][0]['value'] = $form_state['values']['field_event_date']['und'][0]['show_todate'];
+}
+
+/**
+ * Implements hook_views_pre_view().
+ * Change article newsletter title  .
+ */
+
+function mema_common_views_pre_render(&$view) {
+  if ($view->name == 'article_newsletter' && $view->current_display == 'page') {
+    $view->build_info['title'] = "My custom title!";
+      foreach($view->result as $row) {
+        $data = $row->_field_data['nid']['entity']->field_article_type['und'][0]['tid'];
+      }
+  $term = taxonomy_term_load($data);
+  if (array_key_exists('und', $term->field_article_title)) {
+    $article_title = $term->field_article_title['und'][0]['value'];
+  }else{
+    $article_title = $term->name;
+  }
+  $view->build_info['title'] = $article_title;
+  }
+}
+
+/**
+  * news/% path call page_not_found().
+  */
+function newsarg(){
+   drupal_not_found();
+ }
+
+/**
+ * Implements validate() for newsletter type term.
+ * User can not update any term who link with newsletter .
+ */
+function article_type_term_form_validate(&$form, &$form_state){
+  if($form_state['values']['op'] == 'Save') {
+    $term_name = $form_state['term']->name;
+    $term_name = strtolower(str_replace(" ","_",$term_name));
+    $nodequeue_name = "newsletter_" . $term_name;
+    if (nodequeue_load_queue_by_name($nodequeue_name)) {
+      form_set_error($form_state['input']['name'], t('Oops! Term is linked to a nodequeue, cannot update.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function mema_common_views_api() {
+  return array('api' => 3.0);
+}
+
+// function mema_common_preprocess(&$vars, $hook) {
+//  $path = current_path();
+//  global $base_url;
+//  $dest = $base_url . '/' . $path;
+//  setcookie("mema_do_sso_redirection", $dest, time()-3600);
+// }

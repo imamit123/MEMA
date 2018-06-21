@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Division View Resource Listing feature.
+ */
+
+include_once 'division_view_resource_listing.features.inc';

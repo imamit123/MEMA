@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Global_Content_Type_Small_Event feature.
+ */
+
+include_once 'global_content_type_small_event.features.inc';

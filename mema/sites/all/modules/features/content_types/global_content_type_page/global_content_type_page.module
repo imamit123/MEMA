@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Global_Content_Type_Page feature.
+ */
+
+include_once 'global_content_type_page.features.inc';

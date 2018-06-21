@@ -1,0 +1,29 @@
+<?php
+
+function gdpr_ip_schema() {
+/* schema for GDPR IP module no */
+$schema['gdpr_ip_details'] = array(
+            'description' => 'To save the GDPR IP and Date/Time',
+            'fields' => array(
+                    'id' => array(
+                            'description' => 'id field',
+                            'type' => 'serial',
+                            'not null' => TRUE,
+                            'unsigned' => TRUE,
+                    ),
+                    'gdpr_ip' => array(
+                            'description' => 'GDPR IP',
+                            'type' => 'varchar',
+                            'length' => '256',
+                    ),
+                    'gdpr_ip_date' => array(
+                            'description' => 'GDPR Unix Timestamp',
+                            'type' => 'varchar',
+                            'length' => '256',
+                    ),
+                ),
+            'primary key' => array('id'),    
+        );
+    
+    return $schema;
+}

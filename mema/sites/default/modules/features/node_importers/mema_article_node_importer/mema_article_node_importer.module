@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mema Article Node Importer feature.
+ */
+
+include_once 'mema_article_node_importer.features.inc';

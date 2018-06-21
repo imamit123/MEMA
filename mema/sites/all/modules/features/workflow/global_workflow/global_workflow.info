@@ -1,0 +1,15 @@
+name = Global Workflow
+description = Global workflow states and transitions
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = workbench_moderation
+dependencies[] = workbench_moderation
+features[features_api][] = api:2
+features[workbench_moderation_states][] = draft
+features[workbench_moderation_states][] = needs_review
+features[workbench_moderation_states][] = published
+features[workbench_moderation_transitions][] = draft:needs_review
+features[workbench_moderation_transitions][] = needs_review:draft
+features[workbench_moderation_transitions][] = needs_review:published
+project path = sites/all/modules/features/workflow

@@ -1,0 +1,12 @@
+name = Mema News Feeds Exporter
+description = feeds exporter to export news/article feeds
+core = 7.x
+package = Features
+version = 7.x-1.1
+dependencies[] = ctools
+dependencies[] = views
+dependencies[] = views_data_export
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = mema_news_exporter
+project path = sites/default/modules/features/feeds_exporter

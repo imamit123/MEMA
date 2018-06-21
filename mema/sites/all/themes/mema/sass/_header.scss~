@@ -1,0 +1,30 @@
+.top-header{
+  #block-menu-menu-top-menu{
+     ul{
+      background: #000 none repeat scroll 0 0;
+      transform: skew(-10deg);
+      float: right;
+      li{
+        a{
+          transform:skew(10deg);
+        }
+      }
+     }
+  }
+}
+.region-menubar{
+  .sf-main-menu {
+      transform: skew(10deg);
+      li{
+        background: black none repeat scroll 0 0;
+        a{
+          padding: 10px 15px;
+          transform: skew(-10deg);
+       }
+     }
+  }
+}
+.menu.nav.navbar-nav {
+    background: #000 none repeat scroll 0 0;
+    transform: skewX(150deg);
+}

@@ -1,0 +1,13 @@
+name = Drupal 8 Cache
+description = Backport of the Drupal 8 caching system.
+package = Performance and scalability
+core = 7.x
+
+files[] = d8cache.test
+
+; Information added by Drupal.org packaging script on 2017-04-06
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "d8cache"
+datestamp = "1491484985"
+

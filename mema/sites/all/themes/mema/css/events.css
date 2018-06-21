@@ -1,0 +1,155 @@
+/** define fonts for site **/
+@font-face {
+  font-family: gotno;
+  src: url("../fonts/alternategotno2d.ttf");
+}
+
+@font-face {
+  font-family: condlight;
+  src: url("../fonts/OpenSans-CondLight.ttf");
+}
+
+@font-face {
+  font-family: opensans-rg;
+  src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: museo300;
+  src: url("../fonts/Museo300-Regular.otf");
+}
+
+/* css for  Events ponsors*/
+/* line 19, ../sass/events.scss */
+h3 {
+  color: #231f20;
+  font-family: gotno;
+  font-size: 19px;
+  margin: 0;
+}
+
+/* line 28, ../sass/events.scss */
+ul li.event-sponsors, ul li.event-detail {
+  list-style: none;
+  display: inline-block;
+  width: 24%;
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+  /* line 39, ../sass/events.scss */
+  ul li.event-sponsors, ul li.event-detail {
+    width: 30%;
+  }
+}
+@media all and (min-width: 320px) and (max-width: 767px) {
+  /* line 49, ../sass/events.scss */
+  ul li.event-sponsors, ul li.event-detail {
+    width: 45%;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  /* line 54, ../sass/events.scss */
+  ul li img {
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  /* line 60, ../sass/events.scss */
+  .accordion-content > ul {
+    padding: 0;
+  }
+}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  /* line 68, ../sass/events.scss */
+  ul li img {
+    height: auto !important;
+    width: 95% !important;
+  }
+}
+/* line 75, ../sass/events.scss */
+p {
+  color: #231f20;
+  font-size: 12px;
+}
+
+/* line 79, ../sass/events.scss */
+.two-third-text {
+  float: left;
+  padding: 10px 5px;
+  width: 59%;
+}
+
+/* line 84, ../sass/events.scss */
+.one-third-image {
+  float: left;
+  padding: 10px 5px;
+  width: 39%;
+}
+
+/* line 89, ../sass/events.scss */
+.full-text {
+  display: inline-block;
+  padding: 10px 5px;
+  width: 97%;
+}
+
+/* line 94, ../sass/events.scss */
+.half-text {
+  float: left;
+  padding: 20px 10px;
+  width: 48%;
+}
+
+/* line 99, ../sass/events.scss */
+.html-block {
+  border: 1px solid #231f20;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  width: 24%;
+}
+
+/* line 106, ../sass/events.scss */
+.accordion {
+  background: #f7f7f7 none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 100%;
+}
+/* line 111, ../sass/events.scss */
+.accordion .accordion-title {
+  background: #e51937 none repeat scroll 0 0;
+  border-bottom: 15px solid #fff;
+  color: #fff;
+  display: block;
+  font-family: gotno;
+  font-size: 19px;
+  padding: 15px;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+}
+/* line 122, ../sass/events.scss */
+.accordion .accordion-title:after {
+  content: "\002B";
+  cursor: pointer;
+  font-family: opensans-rg;
+  font-size: 42px;
+  position: absolute;
+  right: 12px;
+  top: 0;
+}
+/* line 131, ../sass/events.scss */
+.accordion .accordion-title.minus {
+  border-bottom: none;
+}
+/* line 133, ../sass/events.scss */
+.accordion .accordion-title.minus:after {
+  content: "\002D";
+}
+/* line 138, ../sass/events.scss */
+.accordion .accordion-content {
+  border-bottom: 15px solid #fff;
+  display: none;
+  padding: 15px;
+}

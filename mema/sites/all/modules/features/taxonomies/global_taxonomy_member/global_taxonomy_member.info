@@ -1,0 +1,11 @@
+name = Global Taxonomy member
+description = Taxonomy feature for member type
+core = 7.x
+package = Features
+version = 7.x-1.1
+dependencies[] = features
+dependencies[] = taxonomy
+dependencies[] = uuid
+dependencies[] = uuid_features
+features[features_api][] = api:2
+project path = sites/all/modules/features/taxonomies

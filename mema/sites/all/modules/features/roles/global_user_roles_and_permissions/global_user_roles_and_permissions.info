@@ -1,0 +1,15 @@
+name = Global User Roles and Permissions
+description = Global User Roles and Permissions
+core = 7.x
+package = Features
+version = 7.x-1.17
+dependencies[] = features
+dependencies[] = features_roles_permissions
+features[features_api][] = api:2
+features[roles_permissions][] = Content Administrator
+features[roles_permissions][] = Content Editor
+features[roles_permissions][] = Site Manager
+features[roles_permissions][] = administrator
+features[roles_permissions][] = anonymous user
+features[roles_permissions][] = authenticated user
+project path = sites/all/modules/features/roles

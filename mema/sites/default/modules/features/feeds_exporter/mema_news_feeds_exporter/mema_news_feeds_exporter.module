@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mema News Feeds Exporter feature.
+ */
+
+include_once 'mema_news_feeds_exporter.features.inc';

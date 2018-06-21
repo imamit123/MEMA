@@ -1,0 +1,846 @@
+/** define fonts for site **/
+@font-face {
+  font-family: gotno;
+  src: url("../fonts/alternategotno2d.ttf");
+}
+
+@font-face {
+  font-family: gotno;
+  src: url("../fonts/alternategotno2d.otf");
+}
+
+@font-face {
+  font-family: condlight;
+  src: url("../fonts/OpenSans-CondLight.ttf");
+}
+
+@font-face {
+  font-family: condlight;
+  src: url("../fonts/OpenSans-CondLight.otf");
+}
+
+@font-face {
+  font-family: opensans-rg;
+  src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: opensans-rg;
+  src: url("../fonts/OpenSans-Regular.otf");
+}
+
+@font-face {
+  font-family: museo300;
+  src: url("../fonts/Museo300-Regular.otf");
+}
+
+/* Css for mera division site */
+/* line 4, ../sass/divisions.scss */
+.mera {
+  /*  .search-icon {
+    .search_link{
+      color: $mera_base_color;
+      }
+    }*/
+  /*  #block-search-form{
+      .input-group-btn button .icon{
+        color: $mera_base_color;
+      }
+      input{
+        color: $mera_base_color;
+      }
+    }*/
+  /*Css for Pagination*/
+  /* CSS for News Listing Page */
+  /* Css for Advocacy Landing page Block */
+  /* CSS for Advoacy event blog on advocacy page */
+  /* Css for Webform Submit*/
+  /* Css for static block on advocacy page*/
+  /* css for Advocacy landing page main content -block*/
+  /* css For Staff Page */
+  /* css for webform */
+  /* Css for Mera Team Page */
+  /* css for Resource section block*/
+  /* css for Event section block*/
+  /* css for Footer -2nd region */
+}
+/* line 9, ../sass/divisions.scss */
+.mera .top-header #block-menu-menu-top-menu ul.menu li:hover {
+  background: #42943b !important;
+}
+/* line 33, ../sass/divisions.scss */
+.mera .region-menubar .tb-megamenu ul li:hover {
+  background: #42943b !important;
+}
+/* line 40, ../sass/divisions.scss */
+.mera .region-menubar .tb-megamenu .mega-inner ul li {
+  background: #231f20 !important;
+}
+/* line 42, ../sass/divisions.scss */
+.mera .region-menubar .tb-megamenu .mega-inner ul li:hover {
+  background: #42943b !important;
+}
+/* line 44, ../sass/divisions.scss */
+.mera .region-menubar .tb-megamenu .mega-inner ul li:hover a {
+  color: white !important;
+  letter-spacing: 0.5px;
+}
+/* line 49, ../sass/divisions.scss */
+.mera .region-menubar .tb-megamenu .mega-inner ul li a {
+  color: white !important;
+}
+/* line 52, ../sass/divisions.scss */
+.mera .region-menubar .tb-megamenu .mega-inner ul li.dropdown {
+  background: #42943b !important;
+}
+/* line 60, ../sass/divisions.scss */
+.mera a {
+  color: #42943b;
+}
+/* line 62, ../sass/divisions.scss */
+.mera a:hover {
+  color: #42943b;
+}
+/* line 66, ../sass/divisions.scss */
+.mera h2 {
+  color: #42943b;
+}
+/* line 69, ../sass/divisions.scss */
+.mera .views-more-link {
+  color: #42943b;
+}
+/* line 73, ../sass/divisions.scss */
+.mera #edit-actions button {
+  background: #42943b none repeat scroll 0 0;
+}
+/* line 82, ../sass/divisions.scss */
+.mera ul.pagination li.active a, .mera ul.pagination li.active span {
+  color: #42943b !important;
+}
+/* line 93, ../sass/divisions.scss */
+.mera #block-views-home-page-feature-block-block-1 .view-content .views-row .views-field-field-topics,
+.mera #block-views-home-page-feature-block-block-2 .view-content .views-row .views-field-field-topics {
+  border-top: 3px solid #42943b;
+}
+/* line 102, ../sass/divisions.scss */
+.mera #block-views-home-page-event-block-1 .view-home-page-event .view-header:before {
+  border-top: 3px solid #42943b;
+}
+/* line 110, ../sass/divisions.scss */
+.mera #block-views-home-page-event-block-1 .view-home-page-event .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #42943b;
+}
+/* line 118, ../sass/divisions.scss */
+.mera #block-views-home-page-event-block-1 .view-home-page-event .view-footer a {
+  color: #42943b;
+}
+/* line 130, ../sass/divisions.scss */
+.mera .view-news-listing-page .view-content .mema-news-body a,
+.mera .view-news-listing-page .view-content .advocacy-listing-blog-body a,
+.mera .view-advocacy-blog .view-content .mema-news-body a,
+.mera .view-advocacy-blog .view-content .advocacy-listing-blog-body a {
+  color: #42943b;
+}
+/* line 136, ../sass/divisions.scss */
+.mera .news-detail-main-title {
+  color: #42943b;
+}
+/* line 144, ../sass/divisions.scss */
+.mera .advocacy-block-1 .view-content .views-row .views-field-nothing,
+.mera .advocacy-block-2 .view-content .views-row .views-field-nothing {
+  border-top: 3px solid #42943b;
+}
+/* line 154, ../sass/divisions.scss */
+.mera .advocacy-events .view-home-page-event .view-header:before {
+  border-top: 3px solid #42943b;
+}
+/* line 162, ../sass/divisions.scss */
+.mera .advocacy-events .view-home-page-event .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #42943b;
+}
+/* line 170, ../sass/divisions.scss */
+.mera .advocacy-events .view-home-page-event .view-footer a {
+  color: #42943b;
+}
+/* line 179, ../sass/divisions.scss */
+.mera.node-type-webform .webform-client-form .webform-submit {
+  background: #42943b;
+}
+/* line 187, ../sass/divisions.scss */
+.mera .advocacy-static-block .advocacy-static-block-location,
+.mera .advocacy-static-block .div-homepage-right-side-feature-date {
+  color: #42943b;
+}
+/* line 193, ../sass/divisions.scss */
+.mera .advocacy-main-block .views-field-field-hh-image {
+  top: 27px;
+  position: relative;
+  z-index: 0;
+}
+/* line 199, ../sass/divisions.scss */
+.mera .advocacy-main-block .views-field.views-field-title h1 {
+  color: #42943b;
+}
+/* line 204, ../sass/divisions.scss */
+.mera .small-event-detail-event-register-link {
+  background: #42943b;
+}
+/* line 209, ../sass/divisions.scss */
+.mera .small-event-detail-info .small-event-detail-email,
+.mera .small-event-detail-info .small-event-detail-mobile {
+  color: #42943b;
+}
+/* line 216, ../sass/divisions.scss */
+.mera .view-board-executive-satff .view-header p {
+  color: #42943b;
+}
+/* line 224, ../sass/divisions.scss */
+.mera .node-type-webform .webform-client-form .webform-submit {
+  background: #42943b none repeat scroll 0 0;
+}
+/* line 234, ../sass/divisions.scss */
+.mera .footer #block-menu-menu-footer-menu ul li a:hover {
+  color: #42943b;
+}
+/* line 250, ../sass/divisions.scss */
+.mera .view-board-executive-satff .view-content .views-row .views-field-nothing .team-main-wrapper .team-email a:hover {
+  background: rgba(0, 0, 0, 0) url("../images/mera_msg.png") no-repeat scroll left 0;
+}
+/* line 265, ../sass/divisions.scss */
+.mera .homepage-feature-block-main-wrapper .homepage-feature-block-po1-and-po2 .view-content .views-row .views-field-field-topics,
+.mera .homepage-feature-block-main-wrapper .homepage-feature-block--po3-and-po4 .view-content .views-row .views-field-field-topics {
+  border-top: 3px solid #42943b;
+}
+/* line 275, ../sass/divisions.scss */
+.mera .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-header:before {
+  border-top: 3px solid #42943b;
+}
+/* line 283, ../sass/divisions.scss */
+.mera .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #42943b;
+}
+/* line 291, ../sass/divisions.scss */
+.mera .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-footer a {
+  color: #42943b;
+}
+/* line 299, ../sass/divisions.scss */
+.mera #block-views-exp-resource-page #edit-submit-resource {
+  background: #42943b;
+}
+/* line 306, ../sass/divisions.scss */
+.mera #block-views-exp-events-page #edit-submit-events {
+  background: #42943b;
+}
+/* line 311, ../sass/divisions.scss */
+.mera #block-views-exp-news-listing-page-page #edit-submit-news-listing-page {
+  background: #42943b;
+}
+/* line 318, ../sass/divisions.scss */
+.mera .footer-second:before {
+  background: #231f20 none repeat scroll 0 0;
+  content: "";
+  height: 387px;
+  margin-top: -5px;
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+}
+/* line 327, ../sass/divisions.scss */
+.mera .footer-second .more-region {
+  display: none;
+}
+/* line 330, ../sass/divisions.scss */
+.mera .footer-second .container {
+  padding: 20px 15px 100px;
+}
+/* line 332, ../sass/divisions.scss */
+.mera .footer-second .container .region-footer2 {
+  position: relative;
+  display: block !important;
+  z-index: 5;
+}
+/* line 341, ../sass/divisions.scss */
+.mera #search-form #edit-advanced .form-submit {
+  background: #42943b;
+}
+/* line 347, ../sass/divisions.scss */
+.mera .accordion .accordion-title {
+  background: #42943b;
+}
+
+/* Css for hdma division site */
+/* line 355, ../sass/divisions.scss */
+.hdma {
+  /*.search-icon {
+    .search_link{
+      color: $hdma_base_color;
+      }
+    }
+    #block-search-form{
+      .input-group-btn button .icon{
+        color: $hdma_base_color;
+      }
+      input{
+        color: $hdma_base_color;
+      }
+    }*/
+  /*Css for Pagination*/
+  /* CSS for News Listing Page */
+  /* Css for Advocacy Landing page Block */
+  /* CSS for Advoacy event blog on advocacy page */
+  /* Css for Webform Submit*/
+  /* Css for static block on advocacy page*/
+  /* css css for home page hero section*/
+  /* css For Staff Page */
+  /* css for webform */
+  /* Css for hdma Team Page */
+  /* css for Resource section block*/
+  /* css for Event section block*/
+  /* css for Footer -2nd region */
+}
+/* line 360, ../sass/divisions.scss */
+.hdma .top-header #block-menu-menu-top-menu ul.menu li:hover {
+  background: #a75a29 !important;
+}
+/* line 384, ../sass/divisions.scss */
+.hdma .region-menubar .tb-megamenu ul li:hover {
+  background: #a75a29 !important;
+}
+/* line 391, ../sass/divisions.scss */
+.hdma .region-menubar .tb-megamenu .mega-inner ul li {
+  background: #231f20 !important;
+}
+/* line 393, ../sass/divisions.scss */
+.hdma .region-menubar .tb-megamenu .mega-inner ul li:hover {
+  background: #a75a29 !important;
+}
+/* line 395, ../sass/divisions.scss */
+.hdma .region-menubar .tb-megamenu .mega-inner ul li:hover a {
+  color: white !important;
+  letter-spacing: 0.5px;
+}
+/* line 400, ../sass/divisions.scss */
+.hdma .region-menubar .tb-megamenu .mega-inner ul li a {
+  color: white !important;
+}
+/* line 403, ../sass/divisions.scss */
+.hdma .region-menubar .tb-megamenu .mega-inner ul li.dropdown {
+  background: #a75a29 !important;
+}
+/* line 411, ../sass/divisions.scss */
+.hdma a {
+  color: #a75a29;
+}
+/* line 413, ../sass/divisions.scss */
+.hdma a:hover {
+  color: #a75a29;
+}
+/* line 417, ../sass/divisions.scss */
+.hdma h2 {
+  color: #a75a29;
+}
+/* line 420, ../sass/divisions.scss */
+.hdma .views-more-link {
+  color: #a75a29;
+}
+/* line 424, ../sass/divisions.scss */
+.hdma #edit-actions button {
+  background: #a75a29 none repeat scroll 0 0;
+}
+/* line 433, ../sass/divisions.scss */
+.hdma ul.pagination li.active a, .hdma ul.pagination li.active span {
+  color: #a75a29 !important;
+}
+/* line 444, ../sass/divisions.scss */
+.hdma #block-views-home-page-feature-block-block-1 .view-content .views-row .views-field-field-topics,
+.hdma #block-views-home-page-feature-block-block-2 .view-content .views-row .views-field-field-topics {
+  border-top: 3px solid #a75a29;
+}
+/* line 453, ../sass/divisions.scss */
+.hdma #block-views-home-page-event-block-1 .view-home-page-event .view-header:before {
+  border-top: 3px solid #a75a29;
+}
+/* line 461, ../sass/divisions.scss */
+.hdma #block-views-home-page-event-block-1 .view-home-page-event .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #a75a29;
+}
+/* line 469, ../sass/divisions.scss */
+.hdma #block-views-home-page-event-block-1 .view-home-page-event .view-footer a {
+  color: #a75a29;
+}
+/* line 480, ../sass/divisions.scss */
+.hdma .homepage-feature-block-main-wrapper .homepage-feature-block-po1-and-po2 .view-content .views-row .views-field-field-topics,
+.hdma .homepage-feature-block-main-wrapper .homepage-feature-block--po3-and-po4 .view-content .views-row .views-field-field-topics {
+  border-top: 3px solid #a75a29;
+}
+/* line 490, ../sass/divisions.scss */
+.hdma .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-header:before {
+  border-top: 3px solid #a75a29;
+}
+/* line 498, ../sass/divisions.scss */
+.hdma .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #a75a29;
+}
+/* line 506, ../sass/divisions.scss */
+.hdma .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-footer a {
+  color: #a75a29;
+}
+/* line 518, ../sass/divisions.scss */
+.hdma .view-news-listing-page .view-content .mema-news-body a,
+.hdma .view-news-listing-page .view-content .advocacy-listing-blog-body a,
+.hdma .view-advocacy-blog .view-content .mema-news-body a,
+.hdma .view-advocacy-blog .view-content .advocacy-listing-blog-body a {
+  color: #a75a29;
+}
+/* line 524, ../sass/divisions.scss */
+.hdma .news-detail-main-title {
+  color: #a75a29;
+}
+/* line 532, ../sass/divisions.scss */
+.hdma .advocacy-block-1 .view-content .views-row .views-field-nothing,
+.hdma .advocacy-block-2 .view-content .views-row .views-field-nothing {
+  border-top: 3px solid #a75a29;
+}
+/* line 542, ../sass/divisions.scss */
+.hdma .advocacy-events .view-home-page-event .view-header:before {
+  border-top: 3px solid #a75a29;
+}
+/* line 550, ../sass/divisions.scss */
+.hdma .advocacy-events .view-home-page-event .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #a75a29;
+}
+/* line 558, ../sass/divisions.scss */
+.hdma .advocacy-events .view-home-page-event .view-footer a {
+  color: #a75a29;
+}
+/* line 567, ../sass/divisions.scss */
+.hdma.node-type-webform .webform-client-form .webform-submit {
+  background: #a75a29;
+}
+/* line 575, ../sass/divisions.scss */
+.hdma .advocacy-static-block .advocacy-static-block-location,
+.hdma .advocacy-static-block .div-homepage-right-side-feature-date {
+  color: #a75a29;
+}
+/* line 581, ../sass/divisions.scss */
+.hdma .advocacy-main-block .views-field-field-hh-image {
+  top: 27px;
+  position: relative;
+  z-index: 0;
+}
+/* line 587, ../sass/divisions.scss */
+.hdma .advocacy-main-block .views-field.views-field-title h1 {
+  color: #a75a29;
+}
+/* line 592, ../sass/divisions.scss */
+.hdma .small-event-detail-event-register-link {
+  background: #a75a29;
+}
+/* line 597, ../sass/divisions.scss */
+.hdma .small-event-detail-info .small-event-detail-email,
+.hdma .small-event-detail-info .small-event-detail-mobile {
+  color: #a75a29;
+}
+/* line 604, ../sass/divisions.scss */
+.hdma .view-board-executive-satff .view-header p {
+  color: #a75a29;
+}
+/* line 612, ../sass/divisions.scss */
+.hdma .node-type-webform .webform-client-form .webform-submit {
+  background: #a75a29 none repeat scroll 0 0;
+}
+/* line 622, ../sass/divisions.scss */
+.hdma .footer #block-menu-menu-footer-menu ul li a:hover {
+  color: #a75a29;
+}
+/* line 639, ../sass/divisions.scss */
+.hdma .view-board-executive-satff .view-content .views-row .views-field-nothing .team-main-wrapper .team-email a:hover {
+  background: rgba(0, 0, 0, 0) url("../images/hdma_msg.png") no-repeat scroll left 0;
+}
+/* line 651, ../sass/divisions.scss */
+.hdma #block-views-exp-resource-page #edit-submit-resource {
+  background: #a75a29;
+}
+/* line 658, ../sass/divisions.scss */
+.hdma #block-views-exp-events-page #edit-submit-events {
+  background: #a75a29;
+}
+/* line 663, ../sass/divisions.scss */
+.hdma #block-views-exp-news-listing-page-page #edit-submit-news-listing-page {
+  background: #a75a29;
+}
+/* line 671, ../sass/divisions.scss */
+.hdma .footer-second:before {
+  background: #231f20 none repeat scroll 0 0;
+  content: "";
+  height: 387px;
+  margin-top: -5px;
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+}
+/* line 680, ../sass/divisions.scss */
+.hdma .footer-second .more-region {
+  display: none;
+}
+/* line 683, ../sass/divisions.scss */
+.hdma .footer-second .container {
+  padding: 20px 15px 100px;
+}
+/* line 685, ../sass/divisions.scss */
+.hdma .footer-second .container .region-footer2 {
+  display: block !important;
+  position: relative;
+  z-index: 5;
+}
+/* line 694, ../sass/divisions.scss */
+.hdma #search-form #edit-advanced .form-submit {
+  background: #a75a29;
+}
+/* line 700, ../sass/divisions.scss */
+.hdma .accordion .accordion-title {
+  background: #a75a29;
+}
+
+/* css for oesa division site */
+/* line 708, ../sass/divisions.scss */
+.oesa,
+.mfsg {
+  /*.search-icon {
+    .search_link{
+      color: $oesa_base_color;
+      }
+    }
+    #block-search-form{
+      .input-group-btn button .icon{
+        color: $oesa_base_color;
+      }
+      input{
+        color: $oesa_base_color;
+      }
+    }*/
+  /*Css for Pagination*/
+  /* Css for Mera Team Page */
+  /* CSS for News Listing Page */
+  /* Css for Advocacy Landing page Block */
+  /* CSS for Advoacy event blog on advocacy page */
+  /* Css for Webform Submit*/
+  /* Css for static block on advocacy page*/
+  /* css for Advocacy landing page main content -block*/
+  /* css For Staff Page */
+  /* css for webform */
+  /* css for Resource section block*/
+  /* css for Event section block*/
+  /* css for Footer -2nd region */
+}
+/* line 713, ../sass/divisions.scss */
+.oesa .top-header #block-menu-menu-top-menu ul.menu li:hover,
+.mfsg .top-header #block-menu-menu-top-menu ul.menu li:hover {
+  background: #06539d !important;
+}
+/* line 737, ../sass/divisions.scss */
+.oesa .region-menubar .tb-megamenu ul li:hover,
+.mfsg .region-menubar .tb-megamenu ul li:hover {
+  background: #06539d !important;
+}
+/* line 744, ../sass/divisions.scss */
+.oesa .region-menubar .tb-megamenu .mega-inner ul li,
+.mfsg .region-menubar .tb-megamenu .mega-inner ul li {
+  background: #231f20 !important;
+}
+/* line 746, ../sass/divisions.scss */
+.oesa .region-menubar .tb-megamenu .mega-inner ul li:hover,
+.mfsg .region-menubar .tb-megamenu .mega-inner ul li:hover {
+  background: #06539d !important;
+}
+/* line 748, ../sass/divisions.scss */
+.oesa .region-menubar .tb-megamenu .mega-inner ul li:hover a,
+.mfsg .region-menubar .tb-megamenu .mega-inner ul li:hover a {
+  color: white !important;
+  letter-spacing: 0.5px;
+}
+/* line 753, ../sass/divisions.scss */
+.oesa .region-menubar .tb-megamenu .mega-inner ul li a,
+.mfsg .region-menubar .tb-megamenu .mega-inner ul li a {
+  color: white !important;
+}
+/* line 756, ../sass/divisions.scss */
+.oesa .region-menubar .tb-megamenu .mega-inner ul li.dropdown,
+.mfsg .region-menubar .tb-megamenu .mega-inner ul li.dropdown {
+  background: #06539d !important;
+}
+/* line 764, ../sass/divisions.scss */
+.oesa a,
+.mfsg a {
+  color: #06539d;
+}
+/* line 766, ../sass/divisions.scss */
+.oesa a:hover,
+.mfsg a:hover {
+  color: #06539d;
+}
+/* line 770, ../sass/divisions.scss */
+.oesa h2,
+.mfsg h2 {
+  color: #06539d;
+}
+/* line 773, ../sass/divisions.scss */
+.oesa .views-more-link,
+.mfsg .views-more-link {
+  color: #06539d;
+}
+/* line 777, ../sass/divisions.scss */
+.oesa #edit-actions button,
+.mfsg #edit-actions button {
+  background: #06539d none repeat scroll 0 0;
+}
+/* line 786, ../sass/divisions.scss */
+.oesa ul.pagination li.active a, .oesa ul.pagination li.active span,
+.mfsg ul.pagination li.active a,
+.mfsg ul.pagination li.active span {
+  color: #06539d !important;
+}
+/* line 797, ../sass/divisions.scss */
+.oesa #block-views-home-page-feature-block-block-1 .view-content .views-row .views-field-field-topics,
+.oesa #block-views-home-page-feature-block-block-2 .view-content .views-row .views-field-field-topics,
+.mfsg #block-views-home-page-feature-block-block-1 .view-content .views-row .views-field-field-topics,
+.mfsg #block-views-home-page-feature-block-block-2 .view-content .views-row .views-field-field-topics {
+  border-top: 3px solid #06539d;
+}
+/* line 806, ../sass/divisions.scss */
+.oesa #block-views-home-page-event-block-1 .view-home-page-event .view-header:before,
+.mfsg #block-views-home-page-event-block-1 .view-home-page-event .view-header:before {
+  border-top: 3px solid #06539d;
+}
+/* line 814, ../sass/divisions.scss */
+.oesa #block-views-home-page-event-block-1 .view-home-page-event .view-content .views-row .views-field-nothing .field-content .date-display-single,
+.mfsg #block-views-home-page-event-block-1 .view-home-page-event .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #06539d;
+}
+/* line 822, ../sass/divisions.scss */
+.oesa #block-views-home-page-event-block-1 .view-home-page-event .view-footer a,
+.mfsg #block-views-home-page-event-block-1 .view-home-page-event .view-footer a {
+  color: #06539d;
+}
+/* line 833, ../sass/divisions.scss */
+.oesa .homepage-feature-block-main-wrapper .homepage-feature-block-po1-and-po2 .view-content .views-row .views-field-field-topics,
+.oesa .homepage-feature-block-main-wrapper .homepage-feature-block--po3-and-po4 .view-content .views-row .views-field-field-topics,
+.mfsg .homepage-feature-block-main-wrapper .homepage-feature-block-po1-and-po2 .view-content .views-row .views-field-field-topics,
+.mfsg .homepage-feature-block-main-wrapper .homepage-feature-block--po3-and-po4 .view-content .views-row .views-field-field-topics {
+  border-top: 3px solid #06539d;
+}
+/* line 843, ../sass/divisions.scss */
+.oesa .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-header:before,
+.mfsg .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-header:before {
+  border-top: 3px solid #06539d;
+}
+/* line 851, ../sass/divisions.scss */
+.oesa .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-content .views-row .views-field-nothing .field-content .date-display-single,
+.mfsg .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #06539d;
+}
+/* line 859, ../sass/divisions.scss */
+.oesa .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-footer a,
+.mfsg .homepage-event-block-main-wrapper .homepage-event-block-10-items .view-footer a {
+  color: #06539d;
+}
+/* line 873, ../sass/divisions.scss */
+.oesa .view-board-executive-satff .view-content .views-row .views-field-nothing .team-main-wrapper .team-email a:hover,
+.mfsg .view-board-executive-satff .view-content .views-row .views-field-nothing .team-main-wrapper .team-email a:hover {
+  background: rgba(0, 0, 0, 0) url("../images/oesa_msg.png") no-repeat scroll left 0;
+}
+/* line 889, ../sass/divisions.scss */
+.oesa .view-news-listing-page .view-content .mema-news-body a,
+.oesa .view-news-listing-page .view-content .advocacy-listing-blog-body a,
+.oesa .view-advocacy-blog .view-content .mema-news-body a,
+.oesa .view-advocacy-blog .view-content .advocacy-listing-blog-body a,
+.mfsg .view-news-listing-page .view-content .mema-news-body a,
+.mfsg .view-news-listing-page .view-content .advocacy-listing-blog-body a,
+.mfsg .view-advocacy-blog .view-content .mema-news-body a,
+.mfsg .view-advocacy-blog .view-content .advocacy-listing-blog-body a {
+  color: #06539d;
+}
+/* line 895, ../sass/divisions.scss */
+.oesa .news-detail-main-title,
+.mfsg .news-detail-main-title {
+  color: #06539d;
+}
+/* line 903, ../sass/divisions.scss */
+.oesa .advocacy-block-1 .view-content .views-row .views-field-nothing,
+.oesa .advocacy-block-2 .view-content .views-row .views-field-nothing,
+.mfsg .advocacy-block-1 .view-content .views-row .views-field-nothing,
+.mfsg .advocacy-block-2 .view-content .views-row .views-field-nothing {
+  border-top: 3px solid #06539d;
+}
+/* line 913, ../sass/divisions.scss */
+.oesa .advocacy-events .view-home-page-event .view-header:before,
+.mfsg .advocacy-events .view-home-page-event .view-header:before {
+  border-top: 3px solid #06539d;
+}
+/* line 921, ../sass/divisions.scss */
+.oesa .advocacy-events .view-home-page-event .view-content .views-row .views-field-nothing .field-content .date-display-single,
+.mfsg .advocacy-events .view-home-page-event .view-content .views-row .views-field-nothing .field-content .date-display-single {
+  color: #06539d;
+}
+/* line 929, ../sass/divisions.scss */
+.oesa .advocacy-events .view-home-page-event .view-footer a,
+.mfsg .advocacy-events .view-home-page-event .view-footer a {
+  color: #06539d;
+}
+/* line 938, ../sass/divisions.scss */
+.oesa.node-type-webform .webform-client-form .webform-submit,
+.mfsg.node-type-webform .webform-client-form .webform-submit {
+  background: #06539d;
+}
+/* line 946, ../sass/divisions.scss */
+.oesa .advocacy-static-block .advocacy-static-block-location,
+.oesa .advocacy-static-block .div-homepage-right-side-feature-date,
+.mfsg .advocacy-static-block .advocacy-static-block-location,
+.mfsg .advocacy-static-block .div-homepage-right-side-feature-date {
+  color: #06539d;
+}
+/* line 952, ../sass/divisions.scss */
+.oesa .advocacy-main-block .views-field-field-hh-image,
+.mfsg .advocacy-main-block .views-field-field-hh-image {
+  top: 27px;
+  position: relative;
+  z-index: 0;
+}
+/* line 958, ../sass/divisions.scss */
+.oesa .advocacy-main-block .views-field.views-field-title h1,
+.mfsg .advocacy-main-block .views-field.views-field-title h1 {
+  color: #06539d;
+}
+/* line 963, ../sass/divisions.scss */
+.oesa .small-event-detail-event-register-link,
+.mfsg .small-event-detail-event-register-link {
+  background: #06539d;
+}
+/* line 968, ../sass/divisions.scss */
+.oesa .small-event-detail-info .small-event-detail-email,
+.oesa .small-event-detail-info .small-event-detail-mobile,
+.mfsg .small-event-detail-info .small-event-detail-email,
+.mfsg .small-event-detail-info .small-event-detail-mobile {
+  color: #06539d;
+}
+/* line 975, ../sass/divisions.scss */
+.oesa .view-board-executive-satff .view-header p,
+.mfsg .view-board-executive-satff .view-header p {
+  color: #06539d;
+}
+/* line 983, ../sass/divisions.scss */
+.oesa .node-type-webform .webform-client-form .webform-submit,
+.mfsg .node-type-webform .webform-client-form .webform-submit {
+  background: #06539d none repeat scroll 0 0;
+}
+/* line 993, ../sass/divisions.scss */
+.oesa .footer #block-menu-menu-footer-menu ul li a:hover,
+.mfsg .footer #block-menu-menu-footer-menu ul li a:hover {
+  color: #06539d;
+}
+/* line 1003, ../sass/divisions.scss */
+.oesa #block-views-exp-resource-page #edit-submit-resource,
+.mfsg #block-views-exp-resource-page #edit-submit-resource {
+  background: #06539d;
+}
+/* line 1010, ../sass/divisions.scss */
+.oesa #block-views-exp-events-page #edit-submit-events,
+.mfsg #block-views-exp-events-page #edit-submit-events {
+  background: #06539d;
+}
+/* line 1015, ../sass/divisions.scss */
+.oesa #block-views-exp-news-listing-page-page #edit-submit-news-listing-page,
+.mfsg #block-views-exp-news-listing-page-page #edit-submit-news-listing-page {
+  background: #06539d;
+}
+/* line 1022, ../sass/divisions.scss */
+.oesa .footer-second:before,
+.mfsg .footer-second:before {
+  background: #231f20 none repeat scroll 0 0;
+  content: "";
+  height: 387px;
+  margin-top: -5px;
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+}
+/* line 1031, ../sass/divisions.scss */
+.oesa .footer-second .more-region,
+.mfsg .footer-second .more-region {
+  display: none;
+}
+/* line 1034, ../sass/divisions.scss */
+.oesa .footer-second .container,
+.mfsg .footer-second .container {
+  padding: 20px 15px 100px;
+}
+/* line 1036, ../sass/divisions.scss */
+.oesa .footer-second .container .region-footer2,
+.mfsg .footer-second .container .region-footer2 {
+  display: block !important;
+  position: relative;
+  z-index: 5;
+}
+/* line 1045, ../sass/divisions.scss */
+.oesa #search-form #edit-advanced .form-submit,
+.mfsg #search-form #edit-advanced .form-submit {
+  background: #06539d;
+}
+/* line 1051, ../sass/divisions.scss */
+.oesa .accordion .accordion-title,
+.mfsg .accordion .accordion-title {
+  background: #06539d;
+}
+
+/* css for Assa and mfsg site */
+/* line 1058, ../sass/divisions.scss */
+.aasa {
+  /* css for Footer -2nd region */
+}
+/* line 1060, ../sass/divisions.scss */
+.aasa .advocacy-main-block .views-field-field-hh-image {
+  top: 27px;
+  position: relative;
+  z-index: 0;
+}
+/* line 1066, ../sass/divisions.scss */
+.aasa .advocacy-main-block .views-field.views-field-title h1 {
+  color: #42943b;
+}
+/* line 1075, ../sass/divisions.scss */
+.aasa .region-menubar .tb-megamenu .mega-inner ul li {
+  background: #231f20 !important;
+}
+/* line 1077, ../sass/divisions.scss */
+.aasa .region-menubar .tb-megamenu .mega-inner ul li:hover {
+  background: #e51937 !important;
+}
+/* line 1079, ../sass/divisions.scss */
+.aasa .region-menubar .tb-megamenu .mega-inner ul li:hover a {
+  color: white !important;
+  letter-spacing: 0.5px;
+}
+/* line 1091, ../sass/divisions.scss */
+.aasa .footer-second:before {
+  background: #231f20 none repeat scroll 0 0;
+  content: "";
+  height: 387px;
+  margin-top: -5px;
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+}
+/* line 1100, ../sass/divisions.scss */
+.aasa .footer-second .more-region {
+  display: none;
+}
+/* line 1103, ../sass/divisions.scss */
+.aasa .footer-second .container {
+  padding: 20px 15px 100px;
+}
+/* line 1105, ../sass/divisions.scss */
+.aasa .footer-second .container .region-footer2 {
+  display: block !important;
+  position: relative;
+  z-index: 5;
+}

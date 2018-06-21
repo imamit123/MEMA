@@ -1,0 +1,11 @@
+name = Mema Article Node Importer
+description = Feature to import article nodes into MEMA
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = feeds
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:2
+features[feeds_importer][] = article_node_importer
+project path = sites/default/modules/features/node_importers

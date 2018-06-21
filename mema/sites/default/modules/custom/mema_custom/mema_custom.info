@@ -1,0 +1,5 @@
+name = MEMA Custom
+description = Custom module for MEMA specific functions
+core = 7.x
+package = mema
+project = mema

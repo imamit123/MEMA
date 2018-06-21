@@ -1,0 +1,11 @@
+name = Mema View  Board Executive Satff
+description = View Feature for  Board Executive Satff List Section
+core = 7.x
+package = Features
+version = 7.x-1.4
+dependencies[] = ctools
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = board_executive_satff
+project path = sites/default/modules/features/views

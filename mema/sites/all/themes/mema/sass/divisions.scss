@@ -1,0 +1,1112 @@
+@import 'variables.scss';
+@import 'global.scss';
+/* Css for mera division site */
+.mera{
+  .top-header {
+    #block-menu-menu-top-menu {
+      ul.menu {
+        li {
+          &:hover{
+            background:$mera_base_color !important;
+          }
+        }
+      }
+    }
+  }
+/*  .search-icon {
+  .search_link{
+    color: $mera_base_color;
+    }
+  }*/
+/*  #block-search-form{
+    .input-group-btn button .icon{
+      color: $mera_base_color;
+    }
+    input{
+      color: $mera_base_color;
+    }
+  }*/
+	.region-menubar {
+	  .tb-megamenu {
+	  	ul{
+	  	 li{
+	  	 	&:hover{
+	  	 	  background: $mera_base_color !important;
+	  	    }  
+	  	 }
+	  	}
+	    .mega-inner{
+	      ul{
+	        li{
+	          background:$footer-bg !important;
+	          &:hover{
+	          	background:$mera_base_color !important;
+	            a{
+	              color: $white !important;
+	              letter-spacing: 0.5px;
+	            }
+	          }
+	          a{
+	            color: $white !important;
+	          }
+            &.dropdown{
+              background: $mera_base_color !important;
+            }
+	        }
+	      }
+	    }
+	  }
+	}
+	a{
+    color: $mera_base_color;
+    &:hover{
+      color: $mera_base_color;
+    }
+  }
+  h2{
+		color: $mera_base_color;
+	}
+	.views-more-link{
+      color: $mera_base_color;
+   }
+   #edit-actions{
+    button {
+      background: $mera_base_color none repeat scroll 0 0;
+    }
+  }
+  /*Css for Pagination*/
+	ul{
+	  &.pagination{
+	    li {
+	      &.active{
+	        a,span{
+	          color: $mera_base_color !important;
+	        }
+	      }
+	    }
+	  }
+	}
+	#block-views-home-page-feature-block-block-1,
+    #block-views-home-page-feature-block-block-2{
+      .view-content {
+        .views-row {
+          .views-field-field-topics{
+            border-top: 3px solid $mera_base_color;
+          }
+        }
+      }
+    }
+    #block-views-home-page-event-block-1{
+      .view-home-page-event{
+        .view-header {
+          &:before{
+            border-top: 3px solid $mera_base_color;
+          }
+        }
+       .view-content{
+          .views-row{
+            .views-field-nothing {
+              .field-content{
+                .date-display-single{
+                  color: $mera_base_color;
+                }
+              }
+            }
+          }
+        }
+       .view-footer {
+          a {
+            color: $mera_base_color;
+           }
+        }
+      }
+    }
+    /* CSS for News Listing Page */
+    .view-news-listing-page,
+    .view-advocacy-blog{
+      .view-content{
+        .mema-news-body,
+        .advocacy-listing-blog-body {
+          a{
+            color: $mera_base_color;
+          }
+        }
+      }
+    }
+    .news-detail-main-title{
+      color: $mera_base_color;
+    }
+    /* Css for Advocacy Landing page Block */
+	.advocacy-block-1,
+	.advocacy-block-2 {
+	  .view-content {
+	    .views-row {
+	      .views-field-nothing{
+	        border-top: 3px solid $mera_base_color;
+	      }
+	    }
+	  }
+	}
+	/* CSS for Advoacy event blog on advocacy page */
+	.advocacy-events{
+	  .view-home-page-event{
+	    .view-header {
+        &:before{
+	        border-top: 3px solid $mera_base_color;
+        }
+	    }
+	    .view-content{
+	      .views-row{
+	        .views-field-nothing {
+	          .field-content{
+	            .date-display-single{
+	              color: $mera_base_color;
+	            }
+	          }
+	        }
+	      }
+	    }
+	    .view-footer {
+	      a {
+	        color: $mera_base_color;
+	      }
+	    }
+	  }
+	}
+	/* Css for Webform Submit*/
+	&.node-type-webform {
+		.webform-client-form {
+			.webform-submit{
+			  background: $mera_base_color ;
+			}
+		}
+	}
+	/* Css for static block on advocacy page*/
+	.advocacy-static-block{
+	  .advocacy-static-block-location,
+    .div-homepage-right-side-feature-date{
+	    color: $mera_base_color;
+	  }
+	}
+	/* css for Advocacy landing page main content -block*/
+	.advocacy-main-block {
+	  .views-field-field-hh-image {
+         top: 27px;
+         position: relative;
+         z-index: 0;
+       }
+	  .views-field.views-field-title {
+	    h1{
+	      color: $mera_base_color;
+	    }
+	  }
+    }
+    .small-event-detail-event-register-link{
+      background: $mera_base_color;
+    }
+    .small-event-detail-info{
+	  .small-event-detail-email,
+	  .small-event-detail-mobile{
+	    color: $mera_base_color;
+	  }
+	}
+	/* css For Staff Page */
+	.view-board-executive-satff{
+	  .view-header{
+	    p{
+	      color: $mera_base_color;
+	    }
+	  }
+	}
+	/* css for webform */
+	.node-type-webform{
+      .webform-client-form {
+	    .webform-submit{
+		  background: $mera_base_color none repeat scroll 0 0;
+		}
+	  }
+	}
+	.footer {
+      #block-menu-menu-footer-menu{
+        ul{
+  		  li{
+  		    a{
+              &:hover{
+                color:$mera_base_color;
+              }
+  			}
+  		  }
+  	    }
+      }
+    }
+     /* Css for Mera Team Page */
+    .view-board-executive-satff{
+	    .view-content {
+	      .views-row {
+	        .views-field-nothing {
+	          .team-main-wrapper {
+		        .team-email{
+		          a{
+		            &:hover{
+		              background: rgba(0, 0, 0, 0) url("../images/mera_msg.png") no-repeat scroll left 0; 
+		            }
+		          }
+	            }
+	          }
+	        }
+	      }
+	    }
+    }
+    .homepage-feature-block-main-wrapper{
+  	  .homepage-feature-block-po1-and-po2,
+      .homepage-feature-block--po3-and-po4{
+         .view-content {
+           .views-row {
+		      .views-field-field-topics{
+		        border-top: 3px solid $mera_base_color;
+		      }
+	        }
+        }
+      }
+    }
+    .homepage-event-block-main-wrapper{
+  	  .homepage-event-block-10-items{
+        .view-header {
+          &:before{
+            border-top: 3px solid $mera_base_color;
+          }
+        }
+       .view-content{
+          .views-row{
+            .views-field-nothing {
+              .field-content{
+                .date-display-single{
+                  color: $mera_base_color;
+                }
+              }
+            }
+          }
+        }
+       .view-footer {
+          a {
+            color: $mera_base_color;
+          }
+        }
+      }
+    }
+    /* css for Resource section block*/
+    #block-views-exp-resource-page{
+    	#edit-submit-resource{
+    		background: $mera_base_color;
+    	}
+    }
+
+    /* css for Event section block*/
+    #block-views-exp-events-page{
+    	#edit-submit-events{
+    		background: $mera_base_color;
+    	}
+    }
+    #block-views-exp-news-listing-page-page{
+      #edit-submit-news-listing-page{
+        background: $mera_base_color;
+      }
+    }
+
+    /* css for Footer -2nd region */
+	.footer-second{
+	  &:before {
+	    background: $footer-bg none repeat scroll 0 0;
+	    content: "";
+	    height: 387px;
+      margin-top: -5px;
+	    opacity: 0.9;
+	    position: absolute;
+	    width: 100%;
+	   }
+	   .more-region{
+	   	  display: none;
+	   }
+	   .container {
+	    padding: 20px 15px 100px;
+	    .region-footer2{
+        position: relative;
+	      display: block !important;
+        z-index: 5;
+	    }
+	   }
+	}
+  #search-form {
+    #edit-advanced {
+      .form-submit{
+        background: $mera_base_color;
+      }
+    }
+  }
+  .accordion {
+    .accordion-title {
+      background: $mera_base_color;
+    }
+  }
+}
+
+/* Css for hdma division site */
+
+.hdma{
+	.top-header {
+    #block-menu-menu-top-menu {
+      ul.menu {
+        li {
+          &:hover{
+            background:$hdma_base_color !important;
+          }
+        }
+      }
+    }
+  }
+/*.search-icon {
+  .search_link{
+    color: $hdma_base_color;
+    }
+  }
+  #block-search-form{
+    .input-group-btn button .icon{
+      color: $hdma_base_color;
+    }
+    input{
+      color: $hdma_base_color;
+    }
+  }*/
+	.region-menubar {
+	  .tb-megamenu {
+	  	ul{
+	  	 li{
+	  	 	&:hover{
+	  	 	  background: $hdma_base_color !important;
+	  	    }  
+	  	 }
+	  	}
+	    .mega-inner{
+	      ul{
+	        li{
+	          background:$footer-bg !important;
+	          &:hover{
+	          	background:$hdma_base_color !important;
+	            a{
+		          color: $white !important;
+	           letter-spacing: 0.5px;
+	            }
+	          }
+	          a{
+	            color: $white !important;
+	          }
+	          &.dropdown{
+		        background: $hdma_base_color !important;
+		      }
+	        }
+	      }
+	    }
+	  }
+	}
+	a{
+    color: $hdma_base_color;
+    &:hover{
+      color: $hdma_base_color;
+    }
+  }
+  h2{
+		color: $hdma_base_color;
+	}
+	.views-more-link{
+      color: $hdma_base_color;
+   }
+   #edit-actions{
+    button {
+      background: $hdma_base_color none repeat scroll 0 0;
+    }
+  }
+  /*Css for Pagination*/
+	ul{
+	  &.pagination{
+	    li {
+	      &.active{
+	        a,span{
+	          color: $hdma_base_color !important;
+	        }
+	      }
+	    }
+	  }
+	}
+	#block-views-home-page-feature-block-block-1,
+    #block-views-home-page-feature-block-block-2{
+      .view-content {
+        .views-row {
+          .views-field-field-topics{
+            border-top: 3px solid $hdma_base_color;
+          }
+        }
+      }
+    }
+    #block-views-home-page-event-block-1{
+      .view-home-page-event{
+        .view-header {
+          &:before{
+            border-top: 3px solid $hdma_base_color;
+          }
+        }
+       .view-content{
+          .views-row{
+            .views-field-nothing {
+              .field-content{
+                .date-display-single{
+                  color: $hdma_base_color;
+                }
+              }
+            }
+          }
+        }
+       .view-footer {
+          a {
+            color: $hdma_base_color;
+           }
+        }
+      }
+    }
+        .homepage-feature-block-main-wrapper{
+  	  .homepage-feature-block-po1-and-po2,
+      .homepage-feature-block--po3-and-po4{
+         .view-content {
+           .views-row {
+		      .views-field-field-topics{
+		        border-top: 3px solid $hdma_base_color;
+		      }
+	        }
+        }
+      }
+    }
+    .homepage-event-block-main-wrapper{
+  	  .homepage-event-block-10-items{
+        .view-header {
+          &:before{
+            border-top: 3px solid $hdma_base_color;
+          }
+        }
+       .view-content{
+          .views-row{
+            .views-field-nothing {
+              .field-content{
+                .date-display-single{
+                  color: $hdma_base_color;
+                }
+              }
+            }
+          }
+        }
+       .view-footer {
+          a {
+            color: $hdma_base_color;
+          }
+        }
+      }
+    }
+    /* CSS for News Listing Page */
+    .view-news-listing-page,
+    .view-advocacy-blog{
+      .view-content{
+        .mema-news-body,
+        .advocacy-listing-blog-body {
+          a{
+            color: $hdma_base_color;
+          }
+        }
+      }
+    }
+    .news-detail-main-title{
+      color: $hdma_base_color;
+    }
+    /* Css for Advocacy Landing page Block */
+	.advocacy-block-1,
+	.advocacy-block-2 {
+	  .view-content {
+	    .views-row {
+	      .views-field-nothing{
+	        border-top: 3px solid $hdma_base_color;
+	      }
+	    }
+	  }
+	}
+	/* CSS for Advoacy event blog on advocacy page */
+	.advocacy-events{
+	  .view-home-page-event{
+	    .view-header {
+        &:before {
+	        border-top: 3px solid $hdma_base_color;
+        }
+	    }
+	    .view-content{
+	      .views-row{
+	        .views-field-nothing {
+	          .field-content{
+	            .date-display-single{
+	              color: $hdma_base_color;
+	            }
+	          }
+	        }
+	      }
+	    }
+	    .view-footer {
+	      a {
+	        color: $hdma_base_color;
+	      }
+	    }
+	  }
+	}
+	/* Css for Webform Submit*/
+	&.node-type-webform {
+		.webform-client-form {
+			.webform-submit{
+			  background: $hdma_base_color;
+			}
+		}
+	}
+	/* Css for static block on advocacy page*/
+	.advocacy-static-block{
+	  .advocacy-static-block-location,
+    .div-homepage-right-side-feature-date{
+	    color: $hdma_base_color;
+	  }
+	}
+	/* css css for home page hero section*/
+	.advocacy-main-block {
+      .views-field-field-hh-image {
+         top: 27px;
+         position: relative;
+         z-index: 0;
+       }
+	  .views-field.views-field-title {
+	    h1{
+	      color: $hdma_base_color;
+	    }
+	  }
+    }
+    .small-event-detail-event-register-link{
+      background: $hdma_base_color;
+    }
+    .small-event-detail-info{
+	  .small-event-detail-email,
+	  .small-event-detail-mobile{
+	    color: $hdma_base_color;
+	  }
+	}
+	/* css For Staff Page */
+	.view-board-executive-satff{
+	  .view-header{
+	    p{
+	      color: $hdma_base_color;
+	    }
+	  }
+	}
+	/* css for webform */
+	.node-type-webform{
+      .webform-client-form {
+	    .webform-submit{
+		  background: $hdma_base_color none repeat scroll 0 0;
+		}
+	  }
+	}
+	.footer {
+      #block-menu-menu-footer-menu{
+        ul{
+  		  li{
+  		    a{
+              &:hover{
+                color:$hdma_base_color;
+              }
+  			}
+  		  }
+  	    }
+      }
+    }
+
+    /* Css for hdma Team Page */
+    .view-board-executive-satff{
+	    .view-content {
+	      .views-row {
+	        .views-field-nothing {
+	          .team-main-wrapper {
+		        .team-email{
+		          a{
+		            &:hover{
+		              background: rgba(0, 0, 0, 0) url("../images/hdma_msg.png") no-repeat scroll left 0; 
+		            }
+		          }
+	            }
+	          }
+	        }
+	      }
+	    }
+    }
+    /* css for Resource section block*/
+    #block-views-exp-resource-page{
+    	#edit-submit-resource{
+    		background: $hdma_base_color;
+    	}
+    }
+
+    /* css for Event section block*/
+    #block-views-exp-events-page{
+    	#edit-submit-events{
+    		background: $hdma_base_color;
+    	}
+    }
+        #block-views-exp-news-listing-page-page{
+      #edit-submit-news-listing-page{
+        background: $hdma_base_color;
+      }
+    }
+
+
+        /* css for Footer -2nd region */
+	.footer-second{
+	  &:before {
+	    background: $footer-bg none repeat scroll 0 0;
+	    content: "";
+	    height: 387px;
+      margin-top: -5px;
+	    opacity: 0.9;
+	    position: absolute;
+	    width: 100%;
+	   }
+	   .more-region{
+	   	  display: none;
+	   }
+	   .container {
+	    padding: 20px 15px 100px;
+	    .region-footer2{
+	      display: block !important;
+        position: relative;
+        z-index: 5
+	    }
+	   }
+	}
+  #search-form {
+    #edit-advanced {
+      .form-submit{
+        background: $hdma_base_color;
+      }
+    }
+  }
+  .accordion {
+    .accordion-title {
+      background: $hdma_base_color;
+    }
+  }
+}
+/* css for oesa division site */
+
+.oesa,
+.mfsg{
+	.top-header {
+    #block-menu-menu-top-menu {
+      ul.menu {
+        li {
+          &:hover{
+          background:$oesa_base_color !important;      
+          }
+        }
+      }
+    }
+  }
+/*.search-icon {
+  .search_link{
+    color: $oesa_base_color;
+    }
+  }
+  #block-search-form{
+    .input-group-btn button .icon{
+      color: $oesa_base_color;
+    }
+    input{
+      color: $oesa_base_color;
+    }
+  }*/
+	.region-menubar {
+	  .tb-megamenu {
+	  	ul{
+	  	 li{
+	  	 	&:hover{
+	  	 	  background: $oesa_base_color !important;
+	  	    }  
+	  	 }
+	  	}
+	    .mega-inner{
+	      ul{
+	        li{
+	          background:$footer-bg !important;
+	          &:hover{
+	          	background:$oesa_base_color !important;
+	            a{
+	              color: $white !important;
+	              letter-spacing: 0.5px;
+	            }
+	          }
+	          a{
+	            color: $white !important;
+	          }
+	          &.dropdown{
+		        background: $oesa_base_color !important;
+		      }
+	        }
+	      }
+	    }
+	  }
+	}
+	a{
+    color: $oesa_base_color;
+    &:hover{
+      color: $oesa_base_color;
+    }
+  }
+  h2{
+		color: $oesa_base_color;
+	}
+	.views-more-link{
+      color: $oesa_base_color;
+   }
+   #edit-actions{
+    button {
+      background: $oesa_base_color none repeat scroll 0 0;
+    }
+  }
+  /*Css for Pagination*/
+	ul{
+	  &.pagination{
+	    li {
+	      &.active{
+	        a,span{
+	          color: $oesa_base_color !important;
+	        }
+	      }
+	    }
+	  }
+	}
+	#block-views-home-page-feature-block-block-1,
+    #block-views-home-page-feature-block-block-2{
+      .view-content {
+        .views-row {
+          .views-field-field-topics{
+            border-top: 3px solid $oesa_base_color;
+          }
+        }
+      }
+    }
+    #block-views-home-page-event-block-1{
+      .view-home-page-event{
+        .view-header {
+          &:before{
+            border-top: 3px solid $oesa_base_color;
+          }
+        }
+       .view-content{
+          .views-row{
+            .views-field-nothing {
+              .field-content{
+                .date-display-single{
+                  color: $oesa_base_color;
+                }
+              }
+            }
+          }
+        }
+       .view-footer {
+          a {
+            color: $oesa_base_color;
+           }
+        }
+      }
+    }
+        .homepage-feature-block-main-wrapper{
+  	  .homepage-feature-block-po1-and-po2,
+      .homepage-feature-block--po3-and-po4{
+         .view-content {
+           .views-row {
+		      .views-field-field-topics{
+		        border-top: 3px solid $oesa_base_color;
+		      }
+	        }
+        }
+      }
+    }
+    .homepage-event-block-main-wrapper{
+  	  .homepage-event-block-10-items{
+        .view-header {
+          &:before{
+            border-top: 3px solid $oesa_base_color;
+          }
+        }
+       .view-content{
+          .views-row{
+            .views-field-nothing {
+              .field-content{
+                .date-display-single{
+                  color: $oesa_base_color;
+                }
+              }
+            }
+          }
+        }
+       .view-footer {
+          a {
+            color: $oesa_base_color;
+          }
+        }
+      }
+    }
+         /* Css for Mera Team Page */
+    .view-board-executive-satff{
+	    .view-content {
+	      .views-row {
+	        .views-field-nothing {
+	          .team-main-wrapper {
+		        .team-email{
+		          a{
+		            &:hover{
+		              background: rgba(0, 0, 0, 0) url("../images/oesa_msg.png") no-repeat scroll left 0; 
+		            }
+		          }
+	            }
+	          }
+	        }
+	      }
+	    }
+    }
+    /* CSS for News Listing Page */
+    .view-news-listing-page,
+    .view-advocacy-blog{
+      .view-content{
+        .mema-news-body,
+        .advocacy-listing-blog-body {
+          a{
+            color: $oesa_base_color;
+          }
+        }
+      }
+    }
+    .news-detail-main-title{
+      color: $oesa_base_color;
+    }
+    /* Css for Advocacy Landing page Block */
+	.advocacy-block-1,
+	.advocacy-block-2 {
+	  .view-content {
+	    .views-row {
+	      .views-field-nothing{
+	        border-top: 3px solid $oesa_base_color;
+	      }
+	    }
+	  }
+	}
+	/* CSS for Advoacy event blog on advocacy page */
+	.advocacy-events{
+	  .view-home-page-event{
+	    .view-header {
+        &:before{
+	       border-top: 3px solid $oesa_base_color;
+       }
+	    }
+	    .view-content{
+	      .views-row{
+	        .views-field-nothing {
+	          .field-content{
+	            .date-display-single{
+	              color: $oesa_base_color;
+	            }
+	          }
+	        }
+	      }
+	    }
+	    .view-footer {
+	      a {
+	        color: $oesa_base_color;
+	      }
+	    }
+	  }
+	}
+	/* Css for Webform Submit*/
+	&.node-type-webform {
+		.webform-client-form {
+			.webform-submit{
+			  background: $oesa_base_color;
+			}
+		}
+	}
+	/* Css for static block on advocacy page*/
+	.advocacy-static-block{
+	  .advocacy-static-block-location,
+    .div-homepage-right-side-feature-date{
+	    color: $oesa_base_color;
+	  }
+	}
+	/* css for Advocacy landing page main content -block*/
+	.advocacy-main-block {
+	  .views-field-field-hh-image {
+         top: 27px;
+         position: relative;
+         z-index: 0;
+       }
+	  .views-field.views-field-title {
+	    h1{
+	      color: $oesa_base_color;
+	    }
+	  }
+    }
+    .small-event-detail-event-register-link{
+      background: $oesa_base_color;
+    }
+    .small-event-detail-info{
+	  .small-event-detail-email,
+	  .small-event-detail-mobile{
+	    color: $oesa_base_color;
+	  }
+	}
+	/* css For Staff Page */
+	.view-board-executive-satff{
+	  .view-header{
+	    p{
+	      color: $oesa_base_color;
+	    }
+	  }
+	}
+	/* css for webform */
+	.node-type-webform{
+      .webform-client-form {
+	    .webform-submit{
+		  background: $oesa_base_color none repeat scroll 0 0;
+		}
+	  }
+	}
+	.footer {
+      #block-menu-menu-footer-menu{
+        ul{
+  		  li{
+  		    a{
+              &:hover{
+                color:$oesa_base_color;
+              }
+  			}
+  		  }
+  	    }
+      }
+    }
+    /* css for Resource section block*/
+    #block-views-exp-resource-page{
+    	#edit-submit-resource{
+    		background: $oesa_base_color;
+    	}
+    }
+
+    /* css for Event section block*/
+    #block-views-exp-events-page{
+    	#edit-submit-events{
+    		background: $oesa_base_color;
+    	}
+    }
+    #block-views-exp-news-listing-page-page{
+      #edit-submit-news-listing-page{
+        background: $oesa_base_color;
+      }
+    }
+
+    /* css for Footer -2nd region */
+	.footer-second{
+	  &:before {
+	    background: $footer-bg none repeat scroll 0 0;
+	    content: "";
+	    height: 387px;
+      margin-top: -5px;
+	    opacity: 0.9;
+	    position: absolute;
+	    width: 100%;
+	   }
+	   .more-region{
+	   	  display: none;
+	   }
+	   .container {
+	    padding: 20px 15px 100px;
+	    .region-footer2{
+	      display: block !important;
+        position: relative;
+        z-index: 5
+	    }
+	   }
+	}
+  #search-form {
+    #edit-advanced {
+      .form-submit{
+        background: $oesa_base_color;
+      }
+    }
+  }
+  .accordion {
+    .accordion-title {
+      background: $oesa_base_color;
+    }
+  }
+}
+
+/* css for Assa and mfsg site */
+ .aasa {
+    .advocacy-main-block {
+	  .views-field-field-hh-image {
+         top: 27px;
+         position: relative;
+         z-index: 0;
+       }
+	  .views-field.views-field-title {
+	    h1{
+	      color: $mera_base_color;
+	    }
+	  }
+    }
+    .region-menubar {
+	  .tb-megamenu {
+	    .mega-inner{
+	      ul{
+	        li{
+	          background:$footer-bg !important;
+	          &:hover{
+	          	background:$red !important;
+	            a{
+	              color: $white !important;
+	              letter-spacing: 0.5px;
+	            }
+	          }
+	        }
+	      }
+	    }
+	  }
+	}
+    /* css for Footer -2nd region */
+	.footer-second{
+	  &:before {
+	    background: $footer-bg none repeat scroll 0 0;
+	    content: "";
+	    height: 387px;
+      margin-top: -5px;
+	    opacity: 0.9;
+	    position: absolute;
+	    width: 100%;
+	   }
+	   .more-region{
+	   	  display: none;
+	   }
+	   .container {
+	    padding: 20px 15px 100px;
+	    .region-footer2{
+	      display: block !important;
+        position: relative;
+        z-index: 5
+	    }
+	   }
+	}
+}

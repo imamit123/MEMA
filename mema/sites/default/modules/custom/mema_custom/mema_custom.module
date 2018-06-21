@@ -1,0 +1,119 @@
+<?php
+/**
+ * File : Custom module for MEMA site
+ */
+
+/**
+ * Implements hook_menu
+ */
+function mema_custom_menu() {
+  $items = array();
+  $items['page_not_found'] = array(
+    'title' => 'Page Not Found',
+    'page callback' => 'page_not_found',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_node_save().
+ */
+function mema_custom_node_presave($node) {
+  if($node->type == 'division_promo') {
+  	// do image file copy operation
+  	$functions = GAI::getInstance();
+  	
+  	$wrapper = entity_metadata_wrapper('node', $node);
+
+  	// get source file
+  	$cpy_frm_site = $wrapper->field_division_promo_from->value();
+    $file_ary = $wrapper->field_div_pro_media_image->value();
+    if(isset($file_ary['filename'])) {
+      $file_name = $file_ary['filename'];
+      $file_uri = $source_file_uri = $file_ary['uri'];
+      $cpy_frm_site_folder = $functions->gtGetSiteFolder($cpy_frm_site);
+      $source_file_uri = explode('://', $source_file_uri);
+      $source_file = '/sites/' . $cpy_frm_site_folder . '/files/' . $source_file_uri[1];
+    
+      // check if any sub folder exists within files folder.
+      $sub_fldr = explode($file_name, $source_file_uri[1]);
+      $sub_fldr = $sub_fldr[0];
+      
+      // URL of the image to be copied.
+      $from_site_url = $functions->gtGetAllUrls();
+      $from_site_url = $from_site_url[$cpy_frm_site];
+      $filepath = $from_site_url . $source_file;
+      
+      // read file into string
+      $image = file_get_contents($filepath);
+
+      // copy file to new location
+      $destination = 'public://' . $sub_fldr . $file_name;
+      $file = file_save_data($image, $destination, FILE_EXISTS_RENAME);
+
+      if(is_object($file)) {
+        // save file data into node
+        $node->field_div_pro_media_image = array(LANGUAGE_NONE => array('0' => (array)$file));
+      
+        // do watchdog entry
+        $msg = "MEMA CUSTOM, New Division promo's image copied for node id '{$node->nid}' from " . __FUNCTION__ . " in " . __FILE__ ;
+        $functions->gtWatchdog($msg, WATCHDOG_NOTICE);
+      } else {
+        // do failure notice wntry into watchdog
+        $msg = "MEMA CUSTOM, New Division promo's image copy failed for node id '{$node->nid}' from " . __FUNCTION__ . " in " . __FILE__;
+        $functions->gtWatchdog($msg, WATCHDOG_NOTICE);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function mema_custom_cron() {
+  /* Execute all feed importers */
+  $functions = GAI::getInstance();
+
+  // Store all importer id's (machine name) to use.
+  $mema_importer_ids = array(
+    'aasa_division_promo_importer',
+    'hdma_division_promo_importer',
+    'mera_division_promo_importer',
+    'oesa_division_promo_importer',
+  );
+
+  foreach($mema_importer_ids as $importer_id) {
+    // Load the Feeds Source object.
+    $source = feeds_source($importer_id);
+
+    /*$config = array(
+      'process_in_background' => FALSE,
+    );
+    $source->importer->addConfig($config);*/
+
+    // Execute the import.
+    while (FEEDS_BATCH_COMPLETE != $source->import());
+
+    // do watchdog entry
+    $msg = "MEMA CUSTOM, feed's importer with ID {$importer_id} executed from " . __FUNCTION__ . " in " . __FILE__ ;
+    $functions->gtWatchdog($msg, WATCHDOG_NOTICE);
+  }
+}
+
+/**
+* Call Back for page not found 
+**/
+
+function page_not_found(){
+$output = "<p>Oops! We're sorry that the link you clicked is no longer accessible. In order to help you find what you were looking for,<br />
+       Please choose from one of the links below</p><ol>
+    <li><a href='news'>News</a></li>
+    <li><a href='advocacy'>Advocacy</a></li>
+    <li><a href='events'>Events</a></li>
+  </ol>
+ <p>For any other detail, please contact us directly.</p>
+";
+return $output;
+}

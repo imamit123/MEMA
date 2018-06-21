@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Divisions Content Type Resource feature.
+ */
+
+include_once 'divisions_content_type_resource.features.inc';

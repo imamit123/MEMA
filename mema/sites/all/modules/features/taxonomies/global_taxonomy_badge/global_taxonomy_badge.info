@@ -1,0 +1,10 @@
+name = Global Taxonomy Badge
+description = Feature for Badge Vocabulary
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = badge
+project path = sites/all/modules/features/taxonomies

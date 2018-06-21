@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mema View Homepage Feature feature.
+ */
+
+include_once 'mema_view_homepage_feature.features.inc';

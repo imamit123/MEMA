@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implementation of hook_node_insert
+ * Flush all caches when creating new node
+ * @param $node
+ */
+function mema_clear_caches_node_insert($node) {
+  drupal_flush_all_caches();
+}
+
+/**
+ * Implementation of hook_node_update
+ * Flush all caches when updating node
+ * @param $node
+ */
+function mema_clear_caches_node_update($node) {
+  drupal_flush_all_caches();
+}

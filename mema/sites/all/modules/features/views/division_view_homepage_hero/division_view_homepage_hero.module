@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Division View Homepage Hero feature.
+ */
+
+include_once 'division_view_homepage_hero.features.inc';

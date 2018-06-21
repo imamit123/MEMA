@@ -1,0 +1,352 @@
+/***
+ * Custom Styles according design template
+ ****/
+
+/*** Custom Spinner ***/
+.loader {
+    background-color: #151515;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20000;
+}
+.loader .spinner {
+    background: url("images/ajax-loader.gif") no-repeat scroll center center transparent;
+    width: 16px;
+    height: 16px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*** Hiding some thing ***/
+.tabledrag-toggle-weight-wrapper,
+.vertical-tabs-pane .form-item.form-item-promote,
+.vertical-tabs-pane .form-item.form-item-sticky,
+.page-node-125 .nav-tabs, .form-item-field-registration-opens-date-und-0-value-date .control-label,
+.form-item-field-event-timer-und-0-countdown-timer .control-label,
+.page-admin-structure-menu .tabs--primary,
+.page-admin-structure-menu #edit-options-attributes,
+.page-admin-structure-menu #edit-options-item-attributes,
+.page-admin-people .tabs--primary {
+    display: none;
+}
+
+/*** Custom Top Menu ***/
+.paner-wrapper {
+    min-height: 72px;
+    padding-top: 10px;
+}
+#toggle-menu {
+    cursor: pointer;
+    font-size: 27px;
+    margin: 10px 0 0;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+#toggle-menu.active {
+    transform: rotate(90deg);
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+#auth-user {
+    max-width: 30%;
+    width: auto;
+}
+.img-circle img {
+    border-radius: 50%;
+}
+#user-name {
+    margin: 15px;
+}
+#logo .name {
+    font-size: 20px;
+    height: auto;
+    margin-top: 10px;
+    padding: 6px;
+    text-transform: uppercase;
+}
+#logo .logo {
+    margin-top: 10px;    
+}
+div#logo {
+    margin-top: 5px;
+}
+div#logo img {
+    margin-top: -10px;
+}
+#logo h3 {
+  font-size: 24px;
+  display: inline-block;
+  margin: 7px 0 0 0;
+}
+.custom-container{
+    position: relative;
+}
+section#main-content {
+    padding-bottom: 50px;
+    position: relative;
+}
+#sidebar-left {
+    background: none repeat scroll 0 0 #303030;
+    min-height: 800px;
+    color: #e9e9e9;
+    padding: 10px 0 0 0;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    bottom: 0;
+    z-index: 1010;
+}
+.breadcrumb {
+    background-color: #eaeaea;
+    border-radius: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 15px;
+}
+.group-g-event-information {
+    margin-bottom: 30px;
+}
+.ui-accordion .ui-accordion-content {
+    height: auto !important;
+}
+
+/*** Admin Menu ***/
+
+.region-sidebar-first .nav > li {
+    border-left: 5px solid transparent;
+    margin-bottom: 1px;
+}
+.region-sidebar-first .nav > li.glyphicon:before {
+    position: absolute;
+    top: 11px;
+    left: 15px;
+}
+.region-sidebar-first .nav > li.open,
+.region-sidebar-first .nav > li:hover,
+.region-sidebar-first .nav > li:focus,
+.region-sidebar-first .nav > li.active-trail,
+.region-sidebar-first .nav > li.active{
+    background-color: #000000;
+    border-left: 5px solid #337ab7;
+}    
+.region-sidebar-first .nav > li > a,
+.region-sidebar-first .nav > li > a:hover,
+.region-sidebar-first .nav > li > a:focus,
+.region-sidebar-first .nav > li > .nolink {
+    background-color: transparent;
+    color: #e9e9e9;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+.region-sidebar-first .nav > li > a span,
+.region-sidebar-first .nav > li > .nolink span{
+    font-family: arial;
+    margin-left: 25px;
+}
+/*** sub menu theme ***/
+.region-sidebar-first ul.drop-menu {
+    margin: 0;
+    padding: 0;
+    display: none;
+    font-family: arial;
+}
+.region-sidebar-first ul.drop-menu li a {
+    color: #ddd;
+    padding: 10px 10px 10px 40px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1px;
+}
+.region-sidebar-first ul.drop-menu li a:hover,
+.region-sidebar-first ul.drop-menu li a:focus,
+.region-sidebar-first ul.drop-menu li a.active {
+    background-color: #555;
+}
+.region-sidebar-first .menu.nav > li.expanded .nolink {
+    position: relative;    
+}
+.region-sidebar-first .menu.nav > li.expanded .nolink:after {
+    content: "+";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18px;
+    font-family: arial; 
+}
+.region-sidebar-first .menu.nav > li.expanded .nolink.open:after {
+    content: "-";
+    position: absolute;
+    right: 12px;
+    top: 9px;
+    font-size: 18px;
+    font-family: arial;   
+}
+
+.region-sidebar-first
+#sidebar-left, #main-content { 
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}    
+.main-container.sidebar-show #sidebar-left {
+    width: 0;
+    opacity: 0;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+.main-container.sidebar-show #main-content{
+    width: 100%;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+.main-container.sidebar-show .region-sidebar-first .nav > li > a,
+.main-container.sidebar-show .region-sidebar-first .nav > li > .nolink {
+    opacity: 0;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}    
+.dropdown-menu > li > a > span.glyphicon {
+  margin-right: 10px;
+}
+    
+    
+/*** Common Css ***/
+.table thead tr {
+  background-color: #f0f0f0;
+  background-image: -webkit-linear-gradient(top, #f0f0f0, #dfdfdf);
+  background-image: -moz-linear-gradient(top, #f0f0f0, #dfdfdf);
+  background-image: -ms-linear-gradient(top, #f0f0f0, #dfdfdf);
+  background-image: -o-linear-gradient(top, #f0f0f0, #dfdfdf);
+  background-image: linear-gradient(to bottom, #f0f0f0, #dfdfdf);
+}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    padding: 8px;
+}
+table th a img {
+    display: inline-block;
+}
+.sml-img img {
+      width: 100px;
+}
+.page-admin-structure-menu div.error,
+.page-admin-structure-taxonomy div.error ,
+.page-admin-structure-taxonomy .ul.tabs--primary.nav.nav-tabs{
+  display: none;
+}
+.page-manage .views-table th.views-field-nothing {
+    width: 120px;
+}
+.page-manage .views-table td.views-field-nothing span.glyphicon.glyphicon-pencil {
+    margin: 0 20px;
+}
+.view {
+    position: relative;
+}
+.view-header {
+    position: absolute;
+    top: -65px;
+    right: 0;
+}
+.view-header span.glyphicon {
+    margin-left: 10px;
+}
+
+/*** Home boxes ***/
+
+#counter ul {
+    margin: 0;
+    padding: 0;
+}
+#counter .row {
+    margin-bottom: 25px;
+}
+.panel-left {
+    width: 35%;
+    height: 158px;
+    background: #5CB85C;
+}
+.panel-right {
+    width: 65%;
+    height: 158px;
+    background: transparent;
+    margin-bottom: 0;
+    color: #fff;
+}
+.panel-left.pull-left {
+    color: #fff;
+    height: 158px;
+    border-radius: 0;
+    border: none;
+}
+.panel-primary {
+    display: inline-block;
+    margin-bottom: 30px;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+}
+.green {
+    background-color: #5cb85c;
+}
+.blue {
+    background-color: #4CB1CF;
+}
+.red {
+    background-color: #F0433D;
+}
+.brown {
+    background-color: #f0ad4e;
+}
+.dark-blue {
+    background-color: #337ab7;
+}
+.grey {
+    background-color: #c1c1c1;
+}
+.purple {
+    background-color: #6f5499;
+}
+.light-green {
+    background-color: #4FCBA5;
+}    
+.panel-right h3 {
+    font-size: 50px;
+    padding: 31px 10px 13px;
+    color: rgba(255, 255, 255, 0.96);
+    margin: 0;
+}
+.panel-left .glyphicon {
+    font-size: 10em;
+    color: rgba(255, 255, 255, 0.15);
+    padding: 40px 0;
+    margin-bottom: 30px;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+.panel-primary:hover .panel-left .glyphicon {
+    font-size: 7em;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}    

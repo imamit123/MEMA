@@ -1,0 +1,90 @@
+/** define fonts for site **/
+@font-face {
+  font-family: gotno;
+  src: url("../fonts/alternategotno2d.ttf");
+}
+/* line 2, ../sass/_header.scss */
+.top-header #block-menu-menu-top-menu {
+  margin-bottom: 3em;
+}
+/* line 4, ../sass/_header.scss */
+.top-header #block-menu-menu-top-menu ul {
+  background: #000000 none repeat scroll 0 0;
+  transform: skew(-10deg);
+  float: right;
+}
+/* line 9, ../sass/_header.scss */
+.top-header #block-menu-menu-top-menu ul li a {
+  transform: skew(10deg);
+  font-size: 12px;
+  color: #bf1b31;
+  font-family: gotno;
+  font-size: 12px;
+}
+
+/* line 21, ../sass/_header.scss */
+.region-menubar .tb-megamenu {
+  background: none;
+}
+/* line 23, ../sass/_header.scss */
+.region-menubar .tb-megamenu ul {
+  background: none;
+  transform: skew(-10deg);
+}
+/* line 26, ../sass/_header.scss */
+.region-menubar .tb-megamenu ul li {
+  background: #000000;
+}
+/* line 28, ../sass/_header.scss */
+.region-menubar .tb-megamenu ul li a {
+  background: none !important;
+  transform: skew(10deg);
+  border: none !important;
+}
+
+/* line 37, ../sass/_header.scss */
+.menu.nav.navbar-nav {
+  background: #000000 none repeat scroll 0 0;
+  transform: skewX(150deg);
+}
+
+/* line 2, ../sass/_project.scss */
+.nav > li {
+  float: left;
+}
+
+/* line 6, ../sass/_project.scss */
+.top-container {
+  display: block;
+  height: 600px;
+  width: 100%;
+}
+
+/* line 11, ../sass/_project.scss */
+.main-container {
+  display: inline-block;
+  width: 100%;
+}
+
+/* line 15, ../sass/_project.scss */
+.container-section {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* line 1, ../sass/_footer.scss */
+.footer {
+  background-color: #000000;
+  color: #333333;
+  display: inline-block;
+  margin-top: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* line 9, ../sass/_footer.scss */
+#block-menu-menu-footer-menu,
+#block-block-1 {
+  float: left;
+}

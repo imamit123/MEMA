@@ -1,0 +1,15 @@
+name = Global Nodequeues for Newsletter
+description = Create Nodequeues when add article newsletter.
+core = 7.x
+package = Features
+version = 7.x-1.6
+dependencies[] = entity
+dependencies[] = php
+dependencies[] = rules
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[rules_config][] = rules_add_nodequeue_when_article_create
+features[rules_config][] = rules_create_nodequeue_when_add_newsletter
+features[rules_config][] = rules_delete_nodequeue_when_delete_newsletter
+features[rules_config][] = rules_update_node_type_article
+project path = sites/all/modules/features/nodequeue

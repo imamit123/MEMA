@@ -1,0 +1,116 @@
+diff --git a/openid_connect.module b/openid_connect.module
+index 60b7c80..90f72ad 100644
+--- a/openid_connect.module
++++ b/openid_connect.module
+@@ -1,5 +1,4 @@
+ <?php
+-
+ /**
+  * @file
+  * A pluggable client implementation for the OpenID Connect protocol.
+@@ -233,6 +232,20 @@ function openid_connect_save_userinfo($account, $userinfo) {
+     }
+   }
+ 
++  /*HACK FOR SAVING USER BADGE INTO ACCOUNT*/
++  // save user badges
++  if(isset($userinfo['badges'])) {
++    $functions = GAI::getInstance();
++    $badges = $userinfo['badges'];
++    $usr_badges = array();
++    foreach($badges as $v) {
++      $tids = $functions->gtGetTermIdFromName($v, 'badge');
++      $tid = $tids[0];
++      $usr_badges[] = array('tid' => $tid);
++    }
++    $account_wrapper->{field_sf_badge} = $usr_badges;
++  }
++
+   // Save the display name additionally in the user account 'data', for use in
+   // openid_connect_username_alter().
+   if (isset($userinfo['name'])) {
+@@ -785,7 +798,7 @@ function openid_connect_complete_authorization($client, $tokens, &$destination)
+   $user_data = $client->decodeIdToken($tokens['id_token']);
+   $userinfo = $client->retrieveUserInfo($tokens['access_token']);
+ 
+-  if (empty($userinfo['email'])) {
++  if ($userinfo && empty($userinfo['email'])) {
+     watchdog('openid_connect', 'No e-mail address provided by @provider', array('@provider' => $client->getLabel()), WATCHDOG_ERROR);
+ 
+     return FALSE;
+@@ -799,6 +812,57 @@ function openid_connect_complete_authorization($client, $tokens, &$destination)
+   }
+ 
+   $account = openid_connect_user_load_by_sub($sub, $client->getName());
++
++  /*HACK TO CHECK USER DETAILS FOR ACCESS TO PORTAL*/
++  // variable to check user access
++  $usr_cid = $usr_name = '';
++  $usr_badge_name = array();
++  $comp_name = variable_get('company', 'MEMA');
++
++  // check if user has access to current site
++  $sfapi = salesforce_get_api();
++  $usr_email = $userinfo['email'];
++  $sfq = new SalesforceSelectQuery('User');
++  $sfq->fields = array('Name', 'Email', 'ContactID');
++  $sfq->addCondition('Email', "'$usr_email'");
++  //$sfq->addCondition('CompanyName', "'$comp_name'");
++  $sfq_rs = $sfapi->query($sfq);
++
++  if(is_array($sfq_rs['records']) && count($sfq_rs['records'])) {
++    foreach($sfq_rs['records'] as $val) {
++      $usr_cid = $val['ContactId'];
++      $usr_name = $val['Name'];
++    }
++  } else {
++    watchdog('SSO_Openid_Connect', 'User credentials are not valid for @div', array('@div' => $comp_name), WATCHDOG_ERROR);
++    drupal_set_message(t('Your credentials does not appear to be valid for @div', array('@div' => $comp_name)), 'error');
++    return FALSE;
++  }
++
++  // check if user badge is active, if active get badge name
++  $sfq = new SalesforceSelectQuery('OrderApi__Badge__c');
++  $sfq->fields = array('Name', 'OrderApi__Badge_Type__r.Name');
++  $sfq->addCondition('OrderApi__Contact__c', "'$usr_cid'");
++  $sfq->addCondition('OrderApi__Is_Active__c', 'TRUE');
++  $sfq_rs = $sfapi->query($sfq);
++  if(is_array($sfq_rs['records']) && count($sfq_rs['records'])) {
++    $records = $sfq_rs['records'];
++    foreach($records as $val) {
++      $badge_name = $val['OrderApi__Badge_Type__r']['Name'];
++      // add badge only if not added before
++      if(!in_array($badge_name, $usr_badge_name)) {
++        $usr_badge_name[] = $badge_name;
++      }
++    }
++  } else {
++    watchdog('SSO_Openid_Connect', 'User account badge is invalid', array(), WATCHDOG_ERROR);
++    drupal_set_message(t('Your account badge is invalid'), 'error');
++    return FALSE;
++  }
++
++  // add badges into userinfo array
++  $userinfo['badges'] = $usr_badge_name;
++  
+   if ($account) {
+     // An existing account was found. Save user claims.
+     if (variable_get('openid_connect_always_save_userinfo', TRUE)) {
+@@ -815,8 +879,6 @@ function openid_connect_complete_authorization($client, $tokens, &$destination)
+ 
+     // Create a new account.
+     $account = openid_connect_create_user($sub, $userinfo, $client->getName());
+-    // Reload $account in case it has been altered in a user hook elsewhere.
+-    $account = user_load($account->uid);
+     openid_connect_save_userinfo($account, $userinfo);
+   }
+ 
+@@ -849,7 +911,7 @@ function openid_connect_connect_current_user($client, $tokens) {
+ 
+   $provider_param = array('@provider' => $client->getLabel());
+ 
+-  if (empty($userinfo['email'])) {
++  if ($userinfo && empty($userinfo['email'])) {
+     watchdog('openid_connect', 'No e-mail address provided by @provider', $provider_param, WATCHDOG_ERROR);
+ 
+     return FALSE;

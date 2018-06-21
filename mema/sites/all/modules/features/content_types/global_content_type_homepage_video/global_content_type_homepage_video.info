@@ -1,0 +1,14 @@
+name = Global Content Type Homepage Video
+description = Content Feature for Homepage Background Video
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = file_entity
+dependencies[] = image
+dependencies[] = media
+features[features_api][] = api:2
+features[field_base][] = field_background_video
+features[field_instance][] = node-homepage_background_video-field_background_video
+features[node][] = homepage_background_video
+project path = sites/all/modules/features/content_types

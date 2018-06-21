@@ -1,0 +1,11 @@
+name = Mema View Advocacy Landing Page Block Feature
+description = View Feature for Advocacy Landing Page Blog Block Feature
+core = 7.x
+package = Features
+version = 7.x-1.12
+dependencies[] = ctools
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = advocacy_landing_page_block
+project path = sites/default/modules/features/views

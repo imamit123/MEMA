@@ -1,0 +1,110 @@
+<?php
+
+function gdpr_ip_init() {
+   drupal_add_js(drupal_get_path('module', 'gdpr_ip').'/js/custom.js',array('scope' => 'header')); 
+}
+
+/**
+ * Implements hook_permission().
+ */
+function gdpr_ip_permission() {
+  $permissions['gdpr permission'] = array(
+    'title' => t('Permission to gdpr list'),
+  );
+   return $permissions;
+}
+
+function gdpr_ip_menu() {
+  $items = array();
+  $items['getip'] = array(
+      'title' => t('Get GDPR IP'),
+      'page callback' => 'get_gdpr_ip',
+      'access arguments' => array('access content'),
+    );
+  $items['getip_listing'] = array(
+      'title' => t('GDPR IP List'),
+      'page callback' => 'gdpr_ip_listing',
+      'access arguments' => array('gdpr permission'),
+    );
+  $items['getip_listing_csv_download'] = array(
+      'title' => t('GDPR IP List csv_download'),
+      'page callback' => 'gdpr_ip_listing_csv_download',
+      'access arguments' => array('gdpr permission'),
+    );
+    return $items;
+}
+
+function get_gdpr_ip() {
+  $server_adress = $_SERVER['REMOTE_ADDR'];
+  $server_time = $_SERVER['REQUEST_TIME'];
+  $insert_query =db_insert('gdpr_ip_details')
+          ->fields(array(
+          'gdpr_ip'=> $server_adress,
+          'gdpr_ip_date'=> $server_time,
+        ));
+      $insert_query->execute();
+  
+}
+
+function gdpr_ip_listing(){
+  global $base_url;
+  $path = $base_url.'/getip_listing_csv_download';
+  $get_query =db_select('gdpr_ip_details','gdpr')->fields('gdpr')->orderBy('id', 'DESC')->execute()->fetchAll();
+  $header = array('Id','IP','Date/Time');
+  $row = array();
+  $output = '';
+  $i = 1;
+  foreach ($get_query as $key => $value) {
+    $id = $i;
+    $gdpr_ip = $value->gdpr_ip;
+    $gdpr_ip_detail = $value->gdpr_ip_date;
+    $rows[] = array($id, $gdpr_ip, date('F j, Y h:i:s A', $gdpr_ip_detail));
+    $i++;
+  }
+  $per_page = 10;
+  $current_page = pager_default_initialize(count($rows), $per_page);
+  $chunks = array_chunk($rows, $per_page, TRUE);
+  $output .= theme('table', array('header' => $header, 'rows' => $chunks[$current_page]));
+  $output .= theme('pager', array('quantity',count($rows)));
+   $output .= '<a href="'.$path.'">Download</a>';
+  return $output;
+}
+
+
+
+function gdpr_ip_listing_csv_download(){
+    $get_query =db_select('gdpr_ip_details','gdpr')->fields('gdpr')->orderBy('id', 'DESC')->execute()->fetchAll();
+    //Genrate CSV FILE.
+    $filename = "sites/default/files/gdpr_ip.csv";
+    $fp = fopen("sites/default/files/gdpr_ip.csv","wb");
+    fputcsv($fp, array(t('Id'),t('IP'),t('Date/Time')));
+    $i = 1;
+    foreach ($get_query as $key => $value) {
+    //print_r($value);die();
+      $id = $i;
+      $gdpr_ip = $value->gdpr_ip;
+      $gdpr_ip_detail = date('F j, Y h:i:s A', $value->gdpr_ip_date);
+      $output .= '<tr><td>'.$id.'</td><td>'.$gdpr_ip.'</td><td>'.date('F j, Y h:i:s A', $gdpr_ip_detail).'</td></tr>';
+      fputcsv($fp, array($id,$gdpr_ip, $gdpr_ip_detail));
+       $i++;
+    }
+    fclose($fp);
+    if(file_exists($filename)){
+    //Get file type and set it as Content Type
+      $finfo = finfo_open(FILEINFO_MIME_TYPE);
+      header('Content-Type: ' . finfo_file($finfo, $filename));
+      finfo_close($finfo);
+    //Use Content-Disposition: attachment to specify the filename
+    header('Content-Disposition: attachment; filename='.basename($filename));
+    //No cache
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    //Define file size
+    header('Content-Length: ' . filesize($filename));
+    ob_clean();
+    flush();
+    readfile($filename);
+  exit;
+ }
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Global Content Type Person feature.
+ */
+
+include_once 'global_content_type_person.features.inc';

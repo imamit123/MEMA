@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mema_Content_Type_Homepage_Feature feature.
+ */
+
+include_once 'mema_content_type_homepage_feature.features.inc';

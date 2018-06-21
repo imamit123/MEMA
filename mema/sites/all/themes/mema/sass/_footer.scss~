@@ -1,0 +1,12 @@
+.footer {
+  background-color: #000000;
+  color: #333333;
+  display: inline-block;
+  margin-top: 0;
+  padding: 0;
+  width: 100%;
+}
+#block-menu-menu-footer-menu,
+#block-block-1{
+  float:left;
+}

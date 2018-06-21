@@ -1,0 +1,11 @@
+name = Division View Homepage Feature
+description = View Feature for Homepage Feature Section
+core = 7.x
+package = Features
+version = 7.x-1.3
+dependencies[] = ctools
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = home_page_feature_block
+project path = sites/all/modules/features/views

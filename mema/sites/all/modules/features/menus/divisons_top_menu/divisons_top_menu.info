@@ -1,0 +1,17 @@
+name = Divisons Top Menu
+description = Feature for divisions top menu
+core = 7.x
+package = Features
+version = 7.x-1.1
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = menu-top-menu
+features[menu_links][] = menu-top-menu_about:<front>
+features[menu_links][] = menu-top-menu_career:<front>
+features[menu_links][] = menu-top-menu_divisions:<front>
+features[menu_links][] = menu-top-menu_join:<front>
+features[menu_links][] = menu-top-menu_logout:user/logout
+features[menu_links][] = menu-top-menu_media:<front>
+features[menu_links][] = menu-top-menu_search:<front>
+project path = sites/all/modules/features/menus

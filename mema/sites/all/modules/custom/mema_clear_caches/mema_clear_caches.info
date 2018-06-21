@@ -1,0 +1,4 @@
+name = MEMA Clear Caches
+description = Clear all caches when any node will be saved
+core = 7.x
+package = Custom

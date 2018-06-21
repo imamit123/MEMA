@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Division Content Type Homepage Feature feature.
+ */
+
+include_once 'division_content_type_homepage_feature.features.inc';

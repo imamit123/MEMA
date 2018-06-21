@@ -1,0 +1,556 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function mema_deployment_install() {
+}
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function mema_deployment_update_dependencies() {
+  $dependencies = array();
+
+  return $dependencies;
+}
+
+
+/**
+ * Helper function to bulk enable modules.
+ *
+ * @param $modules
+ */
+function mema_deployment_module_enable($modules) {
+  $modules_enabled = module_enable($modules, TRUE);
+  if(!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+  drupal_flush_all_caches();
+}
+
+/**
+ * Helper function to bulk uninstall modules.
+ *
+ * @param $modules
+ */
+function mema_deployment_module_uninstall($modules) {
+  module_disable($modules, true);
+  drupal_uninstall_modules($modules);
+  drupal_flush_all_caches();
+  return 1;
+}
+
+/**
+ * Helper function to bulk revert features.
+ *
+ * @param $modules
+ */
+function mema_deployment_features_revert($features) {
+  drupal_flush_all_caches();
+  features_revert($features);
+  drupal_flush_all_caches();
+}
+
+
+/**
+ * Helper function to clear webform submissions.
+ *
+ * @param null $uuid
+ *   UUID of the webform to clear submissions for, NULL to clear all
+ *   submissions.
+ */
+// function deployment_webform_submission_clear($uuid = NULL) {
+//   $query = new EntityFieldQuery();
+//   $query->entityCondition('entity_type', 'node')
+//     ->entityCondition('bundle', 'webform');
+
+//   if ($uuid) {
+//     $query->propertyCondition('uuid', $uuid, '=');
+//   }
+
+//   $results = $query->execute();
+
+//   foreach ($results['node'] as $result) {
+//     $nid = $result->nid;
+//     db_delete('webform_submitted_data')
+//       ->condition('nid', $nid)
+//       ->execute();
+//     db_delete('webform_submissions')
+//       ->condition('nid', $nid)
+//       ->execute();
+//   }
+// }
+
+/**
+ * Helper function to disable views.
+ */
+// function deployment_disable_views($viewnames) {
+//   // grab list of views that are already disabled
+//   $views_status = variable_get('views_defaults', array());
+//   // add our views to be disabled to the list
+//   foreach ($viewnames as $key => $viewname) {
+//     $views_status[$viewname] = TRUE;
+//   }
+//   // reset the variable with the new list
+//   variable_set('views_defaults', $views_status);
+//   // empty cache now
+//   if (function_exists('views_invalidate_cache')) {
+//     views_invalidate_cache();
+//   }
+// }
+
+
+/**
+* MEMA specific initial module state
+*/
+function mema_deployment_update_7101(&$sandbox) {
+  $modules = array(
+    'mema_content_type_article',
+    'mema_content_type_homepage_feature',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+* Added mema specific view features
+*/
+function mema_deployment_update_7102(&$sandbox) {
+  $modules = array(
+    'mema_view_homepage_division_promo',
+    'mema_view_homepage_event',
+    'mema_view_homepage_feature',
+    'mema_view_homepage_hero',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for mema contact form
+ */
+function mema_deployment_update_7103(&$sandbox) {
+  $modules = array(
+    'mema_contact_form',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for mema news listing page
+ */
+function mema_deployment_update_7104(&$sandbox) {
+  $modules = array(
+    'mema_view_news_listing',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for mema news listing page
+ */
+function mema_deployment_update_7105(&$sandbox) {
+  $modules = array(
+    'devel_generate',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for mema Advocacy Blog listing page
+ */
+function mema_deployment_update_7106(&$sandbox) {
+  $modules = array(
+    'mema_view_advocacy_blog_feature',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for mema Advocacy Landing Page Blog Block
+ */
+function mema_deployment_update_7107(&$sandbox) {
+  $modules = array(
+    'mema_view_advocacy_landing_page_block_feature',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for Sidebar Feature Content Block
+ */
+function mema_deployment_update_17108(&$sandbox) {
+  $modules = array(
+    'mema_view_sidebar_feature_content',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added view feature to import feeds from HDMA for division promo
+ */
+function mema_deployment_update_17109(&$sandbox) {
+  $modules = array(
+    'mema_promo_feed_importer_for_hdma',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * enable mema_custom module
+ */
+function mema_deployment_update_17110(&$sandbox) {
+  $modules = array(
+    'mema_custom',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added view feature to import feeds from AASA, MERA & OESA for division promo
+ */
+function mema_deployment_update_17111(&$sandbox) {
+  $modules = array(
+    'mema_promo_feed_importer_for_aasa',
+    'mema_promo_feed_importer_for_mera',
+    'mema_promo_feed_importer_for_oesa',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+  
+ /**
+ * Added salesforce modules
+ */
+function mema_deployment_update_17112(&$sandbox) {
+  $modules = array(
+    'salesforce_push',
+    'salesforce_views',
+    'salesforce_mapping',
+    'salesforce_pull',
+    'salesforce',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+  drupal_flush_all_caches();
+}
+
+/**
+ * Uninstall Side bar Feature Content Feature  
+ */
+function mema_deployment_update_17113(&$sandbox) {
+   $modules = array(
+    'mema_view_sidebar_feature_content',
+  );
+  // $messages = array();
+   deployment_module_uninstall($modules, TRUE);
+  
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for mema news feeds exporter
+ */
+function mema_deployment_update_17114(&$sandbox) {
+  $modules = array(
+    'mema_news_feeds_exporter',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Uninstall Home page event Feature  
+ */
+function mema_deployment_update_17115(&$sandbox) {
+   $modules = array(
+    'mema_view_homepage_event',
+  );
+  // $messages = array();
+   deployment_module_uninstall($modules, TRUE);
+  
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for mema team Feature
+ */
+function mema_deployment_update_17116(&$sandbox) {
+  $modules = array(
+    'mema_view_board_executive_satff',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * disable homepage hero content type.
+ * As it was earlier global then it changed for 
+ * divisions due to addition of image fld. on divisions
+ */
+function mema_deployment_update_17117(&$sandbox) {
+  $modules = array(
+    'global_content_type_homepage_hero',
+  );
+  $messages = array();
+  $modules_enabled = mema_deployment_module_uninstall($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Disable homepage backgroungd image feature on MEMA, as its updated for 
+ * division sites (added homepage background image field -- not required in mema)
+ */
+function mema_deployment_update_17118(&$sandbox) {
+  $modules = array(
+    'global_content_type_background_image',
+  );
+  $messages = array();
+  $modules_enabled = mema_deployment_module_uninstall($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added feature for article node importer
+ */
+function mema_deployment_update_17119(&$sandbox) {
+  $modules = array(
+    'mema_article_node_importer',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added Commette listing and Content type feature module
+ */
+function mema_deployment_update_17120(&$sandbox) {
+  $modules = array(
+    'division_view_committee_listing',
+    'divisions_content_type_committee',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * feature for Resource Listing page
+ */
+function mema_deployment_update_17121(&$sandbox) {
+  $modules = array(
+    'division_view_resource_listing',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * feature for Views Slideshow for homepage hero content
+ */
+function mema_deployment_update_17122(&$sandbox) {
+  $modules = array(
+    'views_slideshow',
+    'views_slideshow_cycle'
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * feature for flood unblock module
+ */
+function mema_deployment_update_17123(&$sandbox) {
+  $modules = array(
+    'flood_unblock',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added varnish cache module
+ */
+function mema_deployment_update_17124(&$sandbox) {
+  $modules = array(
+    'varnish',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Added path_redirect_import module
+ */
+function mema_deployment_update_17125(&$sandbox) {
+  $modules = array(
+    'path_redirect_import',
+  );
+  $messages = array();
+  $modules_enabled = module_enable($modules, TRUE);
+  if($modules_enabled) {
+    $messages[] = implode(", ", $modules) . t(' modules have all been enabled.');
+  } else {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  drupal_flush_all_caches();
+}

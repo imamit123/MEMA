@@ -1,0 +1,6 @@
+name = GDPR IP
+description = Store User IP 
+core = 7.x
+package = General Data Protection Regulation
+version = 7.x
+project = "gdpr"

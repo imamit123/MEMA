@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Global Content Type Media feature.
+ */
+
+include_once 'global_content_type_media.features.inc';

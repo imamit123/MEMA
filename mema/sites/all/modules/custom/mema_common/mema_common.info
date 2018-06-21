@@ -1,0 +1,7 @@
+name = MEMA Common Module
+description = Display All Custom function
+core = 7.x
+package = Custom
+
+files[] = inc/database.php
+files[] = inc/functions.php
